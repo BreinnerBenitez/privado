@@ -1,0 +1,5 @@
+son 4 parametros
+1-link
+2-usuario
+3-contraseña
+4-nombre base de datos
