@@ -1,0 +1,46 @@
+en el archivo aplicationcontext.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd "
+> 
+<context:component-scan base-package="es.breinner.benitez"></context:component-scan> // me carga el //excaneo con las anotaciones del archivo xml 
+
+
+
+</beans>
+
+-------------------------------------------------------------------------
+
+
+@autowired = para metodos atributos y constructores  que me generan  el  contexto.getbean
+@Qualifier= me indica que clase que implementa la interfaz es la llamada 
+@Component= la calse que van a tener los Autorried y tambien la clase que implementa la interfaz para escaneo
+@scope("") = para utilizar patron de diseño singleton y prototype
+------------------------------------------------------------------------
+
+@postConstruct InitializingBean , DisposableBean interfaces que remplazan estas anotaciones
+@preDestroy
+tener en cuenta los metedos init (antes de la ejecucion) y metodos destroy(despues de la ejecucion)
+---------------------------------------------------------------------------------------
+con xml = ClassPathXmlApplicationContext contexto=new ClassPathXmlApplicationContext("applicationContext.xml");
+
+con class= AnnotationConfigApplicationContext contexto = new AnnotationConfigApplicationContext (EmpleadosConfig.class);
+para no utilizar el xml y mejor un .class  se utiliza las siguentes anotaciones
+@Configuration
+@ComponentScan("es.breinner.benitez")
+public clase {
+@bean
+ metodo que trae la info 
+ metodo que inyecta dependencia al constructor de la clase 
+}
+
+@PropertySource= permite especificar la ruta al archivo externo de propiedades 
+@Value= permite inyectar el valor de las propiedades desde archivo externo
+---------------------------------MODELO VISTA CONTROLADOR---------------------
+@Controller = me indica con Spring cual sera mi controlador  clase controlador
+@RequestMapping= el metodo que tiene esa etiqueta me indica cual sera mi jsp para la vista en la calse contr
+
+
+
