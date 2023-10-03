@@ -41,6 +41,86 @@ public clase {
 ---------------------------------MODELO VISTA CONTROLADOR---------------------
 @Controller = me indica con Spring cual sera mi controlador  clase controlador
 @RequestMapping= el metodo que tiene esa etiqueta me indica cual sera mi jsp para la vista en la calse contr
+@RequestParam = para remplazar el objeto httpServletRequest de servlet 
+
+-----------------------------------------ANTOCAIONES DE HIRBENTE VALIDACION---------------------------
+
+@NotNull = campo no vacio
+@Size=(min=2,message="campo requerido ")
+@Min(value=10,message ="no se permiten edades menores de 10")
+@Max(value=100,message ="no se permiten edades mayores de 100")
+@Email=verifica que el email tenga un arroba 
+@InitBinder = espacios en blancos para que valide StringTrimmerEditor recortarespacios = new StringTrimmerEditor(true);
 
 
+--------------------------------------------CREACION DE ANOTACIONES-----------------------
+
+
+@Constraint(validatedBy=CPostalColombiaValidacion.class) // futura clase que tendra la logica de la validacion
+@Target({ElementType.METHOD, ElementType.FIELD}) // destino de validacion metodos y campos
+@Retention(RetentionPolicy.RUNTIME) // chequea la anotacion en tiempo de ejecucion
+public @interface CPmadril {
+// difinir el c  postal por defecto 
+	
+	public String value () default "28";
+	
+	
+	// definir el mensaje de error 
+	
+	public String Message() default "el c postal debe comenzar por 28";
+	
+	
+	// definir los grupos
+	
+	
+	 Class<?>[] groups() default {};
+	
+	
+	 // definir los payloads
+
+	 
+	 Class<? extends Payload>[] payload() default {};
+
+}
+
+
+------- LOGICA DE LA ANOTACION--------------
+
+
+
+
+public class CPostalColombiaValidacion implements ConstraintValidator< CPmadril, String> {
+
+	@Override
+    public void initialize(CPmadril elcodigo) {
+    
+		prefijocolombia=elcodigo.value();
+		
+	}
+	
+	
+	@Override
+	public boolean isValid(String arg0, ConstraintValidatorContext arg1) {
+		// TODO Auto-generated method stub
+		
+		
+		boolean valcodigo;
+		
+		if(arg0 != null) {
+			
+			valcodigo=arg0.startsWith(prefijocolombia);
+		}else {
+			
+		return 	valcodigo=true;
+			
+			
+		}
+	
+		return valcodigo;
+	}
+
+	
+	private String prefijocolombia;
+	
+}
 
