@@ -213,9 +213,17 @@ public class Clientes {
 
 @GeneratedValue(strategy=GenerationType.IDENTITY) = campo principal en hibernate
 --------------------------------------------------
-
+// clase cliente
 @OneToOne(cascade=CascadeType.ALL)
-@JoinColumn(name="id")
+@JoinColumn(name="id_detalle")= llave foranea
 private Detalles_cliente detallesCliente; =etiquetas  para generar relacion en java de dos tablas; 
 
+//calse detallecliente
+@OneToOne(mappedBy="detallesCliente",cascade=CascadeType.ALL)
+@JoinColumn(name="id")
+private Cliente elcliente;
 
+
+@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH,})
+@JoinColumn(name="clienteid")
+private Cliente cliente; = muchos a uno   
