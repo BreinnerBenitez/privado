@@ -226,4 +226,5 @@ private Cliente elcliente;
 
 @ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.DETACH,CascadeType.REFRESH,})
 @JoinColumn(name="clienteid")
-private Cliente cliente; = muchos a uno   
+private Cliente cliente; = muchos a uno,   donde va el mappedBY es la entidad padre
+
