@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+
+
+        #labelcorreo{
+
+            background-color: blue;
+        }
+
+
+        #numero{
+
+          width: 100px;
+        }
+
+        #nombre{
+
+          width: 150px;
+
+        }
+
+  </style>
+
+</head>
+<body>
+    <!-- -->
+<section>
+<form name="miformulario" id="miformulario" method="get" autocomplete="on">
+    <label for="nombre">nombre</label> 
+    <input type="text"  name="nombre" id="nombre" pattern="[a-z]{0-10}" placeholder="escribe en minusculas 10 caracteres">
+ </br></br>
+
+<label for="correo" id="labelcorreo">correo</label> 
+<input type="email" name="correo" id="correo" required="true" >
+<label for="contrasena">contrasena</label> 
+<input type="password" name="contrasena " id="contrasena">
+
+
+</br></br>
+
+<label for="buscador">buscador</label>
+<input type="search" name="buscador" id="buscador">
+
+</br></br>
+
+<label for="url">url</label>
+<input type="url" name="url" id="url" autofocus>
+
+</br></br>
+
+<label for="numero">edad-number</label>
+<input type="number" name="edad" id="numero"min="0" max="100" step="5" placeholder="multiplos de 5" >
+
+</br></br>
+
+<label for="range">range</label>
+<input type="range" name="range" id="range" min="0" max="100"  >
+
+</br></br>
+
+<label for="fecha">date-fecha</label>
+<input type="date" name="fecha" id="fecha">
+
+</br></br>
+
+<label for="fecha">date-fecha-mes</label>
+<input type="month" name="fecha" id="fecha">
+</br></br>
+
+<label for="pattern"  id="pattern">  pattern</label>
+<input pattern="[0-9]{5}" name="postal" id="postal" placeholder="5 digitos">
+
+<br><br>
+<input type="submit"  value="enviatodo" >
+
+</form>
+
+<p>fuera del form</p>
+
+<label for="nombre2" id="nombre2">nombre2</label>
+ <input type="text" name="nombre2" id="nombre2" form="miformulario">
+</section>
+
+
+
+
+</body>
+</html>

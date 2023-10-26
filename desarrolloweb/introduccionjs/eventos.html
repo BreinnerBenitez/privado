@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+ var imagen= new Array(3);
+function imagent(){
+
+alert("pensamientos");  // esto es lo que va ser 
+
+}
+
+function imagentipo(){ // esta funcion indica a que se la va ser el evento  y cuando
+//document.getElementsByTagName("img")[0].onclick=imagen;
+  
+for(var i=0;i<3;i++){  
+
+    imagen[i]=document.getElementsByTagName("img")[i];
+}
+   
+    imagen[0].addEventListener("click",imagent,false);
+
+    imagen[0].addEventListener("mouseover",function(){imagen[0].width=255;imagen[0].height=255;},false);
+
+    imagen[0].addEventListener("mouseout",function(){imagen[0].width=200;imagen[0].height=200;},false);
+    
+    imagen[1].addEventListener("click",imagent,false);
+
+    imagen[1].addEventListener("mouseover",function(){imagen[1].width=255;imagen[1].height=255;},false);
+
+    imagen[1].addEventListener("mouseout",function(){imagen[1].width=200;imagen[1].height=200;},false);
+
+    imagen[2].addEventListener("click",imagent,false);
+
+    imagen[2].addEventListener("mouseover",function(){imagen[2].width=255;imagen[2].height=255;},false);
+
+    imagen[2].addEventListener("mouseout",function(){imagen[2].width=200;imagen[2].height=200;},false);
+
+
+}
+
+/*function crecer(){
+                            // esto es lo que va ser // remplazado por funcion anonyma
+imagen.width=255;
+imagen.height=255;
+
+}*/
+
+/*function menguar(){
+
+imagen.width=200;               // esto es lo que va ser // remplazado por funcion anonyma
+imagen.height=200;
+
+}*/
+//window.onload=imagentipo;
+
+window.addEventListener("load",imagentipo,false);
+
+</script>
+
+</head>
+<body>
+    
+    <p><img src="imagenes/1.jpg"  ></p>
+    <p><img src="imagenes/2.jpg"  ></p>
+    <p><img src="imagenes/3.jpg"  ></p>
+   <!--  <p><img src="imagenes/4.jpg"  ></p> -->
+
+</body>
+</html>

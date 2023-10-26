@@ -1,0 +1,4 @@
+absolute, sale del flujo para moverlo de cualquier lado 
+relative,  todo lo de andentro de esta etiqueta es relativo a ella 
+fixed, barras de navehacion fijas 
+static, por defecto 

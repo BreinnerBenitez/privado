@@ -1,0 +1,140 @@
+Códigos HTTP 1XX
+Esta categoría es informativa, temporal e invisible para el cliente. Indica que el servidor ha recibido la petición y procederá con ella. 
+
+100 - Continuar: este código de estado provisional significa que el servidor ha recibido la petición inicial, y el cliente debe continuar.
+
+101 - Cambio de protocolo: este código es una respuesta a una solicitud de campo de cabecera de actualización e indica el protocolo al que cambiará el servidor.
+
+102 - Procesando: esta respuesta indica que el servidor ha recibido y está procesando la solicitud, pero aún no hay respuesta disponible. 
+
+103 - Sugerencias anticipadas: este código se utiliza con la cabecera "Enlace" y permite al navegador precargar recursos mientras el servidor prepara una respuesta. 
+
+Códigos HTTP 2XX
+Esta categoría de códigos estado HTTP engloba las respuestas correctas. 
+
+200 - De acuerdo: esta es la respuesta estándar para las peticiones HTTP que han tenido éxito. El significado real de la respuesta depende del método de solicitud utilizado:
+
+GET: recurso obtenido y está en el cuerpo del mensaje
+HEAD: las cabeceras se incluyen en la respuesta
+POST o PUT: el recurso que describe el resultado de la acción enviada está en el cuerpo del mensaje
+TRACE: el cuerpo del mensaje contiene el mensaje de solicitud tal y como lo recibió el servidor
+201 - Creado: la solicitud se ha realizado correctamente y se ha creado un nuevo recurso. Suele ser la respuesta tras solicitudes POST o PUT. 
+
+202 - Aceptada: la solicitud ha sido aceptada, pero sigue en curso. Se utiliza para casos en los que otro servidor gestiona la solicitud o para el procesamiento por lotes. 
+
+203 - Información no autorizada: los datos devueltos no proceden del servidor de origen. En su lugar, es una versión modificada recogida de un tercero. 
+
+204 - Sin contenido: la solicitud se procesó correctamente, pero no hay contenido. Las cabeceras pueden ser útiles. 
+
+205 - Restablecer contenido: el servidor cumplió la petición, pero pidió al usuario que restableciera el documento.
+
+206 - Contenido parcial: el servidor está entregando parte del recurso. Esta respuesta se utiliza cuando el cliente envía una cabecera Rango para solicitar solo una parte de un recurso. 
+
+207 - Multiestado: proporciona los estados de múltiples recursos, dependiendo de cuántas sub-solicitudes se hayan realizado. 
+
+208 - Ya informado: los miembros de un elemento DAV:propstat ya han sido listados y no se volverán a incluir. 
+
+226 - MI utilizado: el servidor completó una petición GET. Y la respuesta indica uno o más resultados de manipulación de instancias. 
+
+Códigos HTTP 3XX
+Los códigos de estado de esta categoría muestran que el recurso está en una ubicación diferente, y el usuario es redirigido como resultado. 
+
+300 - Opción múltiple: la solicitud tiene más de una respuesta posible. Y el usuario debe elegir una de ellas. 
+
+301 - Movido permanentemente: este código de estado de redirección indica que el recurso solicitado se ha movido permanentemente a una nueva URL. El navegador muestra la nueva URL.
+
+302 - Encontrado: anteriormente conocido como "Movido temporalmente", este código indica que el recurso solicitado se ha movido temporalmente a una nueva URL. 
+
+303 - Ver otros: el servidor redirige al usuario al recurso solicitado con una petición GET en otra URL. 
+
+304 - No modificado: se utiliza con fines de almacenamiento en caché. La respuesta no ha sido modificada, por lo que el cliente puede seguir utilizando la misma versión en caché del recurso solicitado. 
+
+307 - Redirección temporal: el recurso solicitado se ha movido temporalmente a una URL diferente. La única diferencia respecto al código 302 es que el usuario no debe cambiar el método HTTP utilizado.
+
+308 - Redirección permanente: el recurso solicitado se ha movido permanentemente a una URL diferente. La diferencia entre este código y el 301 es que el usuario no debe cambiar el método de petición HTTP.
+
+Códigos HTTP 4XX
+Esta categoría indica que el servidor no puede acceder a una página debido a un error en el lado del cliente. 
+
+400 - Solicitud incorrecta: el servidor no puede o no quiere procesar la solicitud debido a un error del cliente. Por ejemplo, marco de mensaje de solicitud no válido, enrutamiento engañoso de la solicitud, tamaño demasiado grande, etc.
+
+401 - No autorizado: el usuario no tiene credenciales de autenticación válidas para obtener el recurso solicitado.
+
+402 - Pago requerido: reservado para un uso futuro; inicialmente estaba destinado a los sistemas de pago digitales. Se utiliza muy raramente, y ninguna convención estándar lo regula. 
+
+403 - Prohibido: el cliente no tiene derechos de acceso al contenido. Por ejemplo, puede requerir una contraseña. A diferencia del código de error HTTP 401, el servidor sí conoce la identidad del cliente. 
+
+404 - No encontrado: el servidor no puede encontrar el recurso solicitado y no se ha establecido ninguna redirección. Los codigos de errores HTTP 404 pueden perjudicar tus esfuerzos de SEO. 
+
+405 - Método no permitido: el servidor admite el método de solicitud, pero el recurso de destino no. 
+
+406 - No aceptable: el servidor no encuentra ningún contenido que satisfaga los criterios dados por el usuario según las cabeceras Accept solicitadas. 
+
+407 - Se requiere autenticación del proxy: es similar a un 401, pero el proxy debe autenticar al cliente para continuar. 
+
+408 - Tiempo de espera de la solicitud: el servidor agotó el tiempo de espera porque el cliente no produjo una petición en el tiempo asignado. 
+
+409 - Conflicto: el servidor no puede satisfacer la solicitud porque hay un conflicto con el recurso. Mostrará información sobre el problema para que el cliente pueda solucionarlo y volver a enviar la solicitud. 
+
+410 - Desaparecido: el contenido solicitado se ha eliminado permanentemente del servidor y no se restablecerá. 
+
+411 - Longitud requerida: el servidor rechaza la petición porque requiere una longitud definida de la longitud del contenido del campo de cabecera. 
+
+412 - Precondición fallida: el cliente indica condiciones previas en los campos de cabecera que el servidor no cumple. 
+
+413 - Carga demasiado grande: la petición del cliente es mayor que los límites definidos por el servidor y este se niega a procesarla. 
+
+414 - URI demasiado largo: el URI (Identificador Uniforme de Recursos) solicitado por el cliente es demasiado largo para que lo procese el servidor. 
+
+415 - Tipo de soporte no admitido: la petición utiliza un formato de soporte que el servidor no admite. 
+
+416 - Rango no satisfecho: significa que la solicitud no puede ser satisfecha. Más concretamente, indica que la solicitud era para una parte de un recurso que el servidor no podía devolver. 
+
+417 - Expectation failed: la llamada web falla y que el usuario no obtenga una respuesta adecuada del servidor web que espera.
+
+421 - Petición mal dirigida: el cliente envía una petición a un servidor que no es capaz de responder. 
+
+422 - Entidad no procesable: el cliente envía correctamente la solicitud, pero el servidor no puede procesarla debido a errores semánticos o problemas similares. 
+
+423 - Bloqueado: el recurso del método solicitado está bloqueado y es inaccesible. 
+
+424 - Dependencia fallida: la petición falló porque una petición de la que dependía la petición inicial también falló. 
+
+425 - Demasiado pronto: el servidor no está dispuesto a procesar una petición que podría repetirse.
+
+426 - Actualización requerida: el servidor se niega a procesar la solicitud utilizando el protocolo actual a menos que el cliente se actualice a un protocolo diferente. 
+
+428 - Precondición necesaria: el servidor necesita que la petición sea condicional. 
+
+429 - Demasiadas peticiones: el usuario envía demasiadas peticiones en un tiempo determinado. 
+
+431 - Campos de cabecera de solicitud demasiado grandes: el servidor no puede procesar la solicitud porque los campos de cabecera son demasiado grandes. 
+
+451 - No disponible por motivos legales: el usuario solicita un recurso que el servidor no puede proporcionar legalmente. 
+
+Códigos HTTP 5XX
+Esta categoría incluye los errores del lado del servidor. 
+
+Pueden ser perjudiciales para tu SEO, ya que los motores de búsqueda pueden pedir a los rastreadores que ralenticen el rastreo y eliminen las URL indexadas que devuelvan continuamente estos errores.
+
+500 - Error interno del servidor: el servidor ha encontrado un error inesperado y no puede completar la solicitud. 
+
+501 - No implementado: el servidor no puede satisfacer la petición o no reconoce el método de petición. 
+
+502 - Puerta de enlace incorrecta: el servidor actúa como pasarela y recibe una respuesta no válida de un host entrante.
+
+503 - Servicio no disponible: el servidor no puede procesar la solicitud. Esto suele ocurrir cuando un servidor está sobrecargado o inactivo por mantenimiento. 
+
+504 - Tiempo de espera de la puerta de enlace: el servidor estaba actuando como puerta de enlace o proxy y se agotó el tiempo de espera de una respuesta. 
+
+505 - Versión HTTP no admitida: el servidor no admite la versión HTTP de la solicitud.
+
+506 - La variante también negocia: el servidor tiene un error interno de configuración. 
+
+507 - Almacenamiento insuficiente: el servidor no dispone de almacenamiento suficiente para procesar correctamente la solicitud. 
+
+508 - Bucle detectado: el servidor detecta un bucle infinito mientras procesa la petición. 
+
+511 - Autenticación de red requerida: el cliente debe autenticarse para acceder a la red. El error debe incluir un enlace donde el usuario pueda enviar sus credenciales. 
+
+Cómo Comprobar el Códig
