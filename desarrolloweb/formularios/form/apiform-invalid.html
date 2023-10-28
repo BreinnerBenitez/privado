@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        table{
+
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center; 
+            width: 25%;
+            margin:0px auto;
+            background-color: gray;
+            border: 2px dashed black;
+
+        }
+
+        #nombre,#apellido,#enviar,#edad{
+
+                border: 1px solid  black;
+        }
+
+        td{
+
+            padding: 10px;
+
+        }
+    </style>
+
+
+<script>
+   var edad;
+   function comenzar(){
+   
+    edad=document.getElementById("edad");
+
+    edad.addEventListener("change",cambia_rango,false);
+
+    document.datos_usuario.addEventListener("invalid",validar,true);
+
+     document.getElementById("enviar").addEventListener("click",enviar,false);
+
+    document.datos_usuario.addEventListener("input",validartiemporeal,false);
+
+
+   }
+
+   function cambia_rango(){
+
+    var salida=document.getElementById("rango");
+
+    var calculo=edad.value-30;
+    if(calculo<30 ){
+        calculo=0;
+        edad.value=30;
+    }
+
+    salida.innerHTML=calculo+" a "+edad.value;
+
+
+   }
+
+   function validar(e){
+
+     var elemento=e.target;
+     elemento.style.background="red"
+
+   }
+
+
+   function enviar(){
+    
+    var correcto =document.datos_usuario.checkValidity();
+
+    if(correcto==true){
+
+        document.datos_usuario.submit;
+
+    }
+   }
+
+function validartiemporeal(e){
+
+    var elemento=e.target;
+
+    if(elemento.validity.valid==true){
+
+        elemento.style.background="white";
+
+
+    }else{
+
+        elemento.style.background="red";
+
+    }
+
+
+}
+
+window.addEventListener("load",comenzar,false);
+
+
+</script>
+</head>
+<body>
+    
+    <form name="datos_usuario" id="resgistro_usuarios" method="get">
+
+      <!--   <datalist  id="informacion">
+
+            <option value="3114088690" label="  telefono1"></option>
+            <option value="3114088587" label="  telefono2"></option>
+            <option value="3114084596" label="  telefono3"></option>
+       
+       
+       
+        </datalist>
+    </br>  </br>
+
+            <label for="telefono">telefono</label>
+            <input type="tel" name="telefono" id="telefono" list="informacion">
+
+            -->
+
+
+            <table>
+
+                <tr>
+                    <td>
+                        usuario
+                    </td>
+
+                    <td>
+                        <input pattern="[A-Za-z]{3}" name="usuario" id="usuario" maxlength="10" required="true" >
+
+                    </td>
+
+
+                </tr>  <!-- fila-->
+
+
+                <tr>
+                    <td>email</td>
+                    
+                    <td><input type="email" name="email" id="email" placeholder="email" required="true"> </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>edad</td>
+                    <td> <input type="range" name="range" min="0"  max="120" id="edad" value="30" step="30" id="edad"></td>
+
+                </tr>
+
+                <tr>
+
+                   <td>   <output  id="rango">0 a 30</output> </td>
+
+
+                </tr>
+
+                <tr>
+                    <td>     
+
+                        <input type="submit"  value="registrar" id="enviar">
+                    </td>
+                    
+
+                </tr>
+
+                
+
+            </table>
+
+                
+
+    </form>
+
+
+</body>
+</html>

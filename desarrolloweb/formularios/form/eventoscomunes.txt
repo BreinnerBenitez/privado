@@ -1,0 +1,29 @@
+    Click (click): Se desencadena cuando el usuario hace clic en un elemento.
+
+    Doble clic (dblclick): Se desencadena cuando el usuario hace doble clic en un elemento.
+
+    Mouse sobre (mouseover): Se desencadena cuando el puntero del mouse se coloca sobre un elemento.
+
+    Mouse fuera (mouseout): Se desencadena cuando el puntero del mouse sale de un elemento.
+
+    Presionar una tecla (keydown): Se desencadena cuando el usuario presiona una tecla.
+
+    Soltar una tecla (keyup): Se desencadena cuando el usuario suelta una tecla.
+
+    Tecla presionada (keypress): Se desencadena cuando el usuario presiona una tecla que genera un carácter.
+
+    Cambio de valor (change): Se desencadena cuando el valor de un elemento de formulario (como <input>, <select>, o <textarea>) cambia y luego se desenfoca el elemento.
+
+    Envío de formulario (submit): Se desencadena cuando un formulario se envía, ya sea haciendo clic en un botón de envío o al presionar Enter dentro de un campo de texto.
+
+    Carga de página (load): Se desencadena cuando la página ha terminado de cargar todos los elementos.
+
+    Descarga de página (unload): Se desencadena cuando el usuario abandona la página.
+
+    Enfocar (focus): Se desencadena cuando un elemento recibe el foco, por ejemplo, cuando un campo de texto se selecciona.
+
+    Desenfocar (blur): Se desencadena cuando un elemento pierde el foco, por ejemplo, cuando un campo de texto ya no está seleccionado.
+
+    Redimensionar (resize): Se desencadena cuando el tamaño de la ventana del navegador cambia.
+
+    Scroll (scroll): Se desencadena cuando el contenido de un elemento es desplazado, como desplazar hacia arriba o hacia abajo en una página web.

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        table{
+
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center; 
+            width: 25%;
+            margin:0px auto;
+            background-color: gray;
+            border: 2px dashed black;
+
+        }
+
+        #nombre,#apellido,#enviar,#edad{
+
+                border: 1px solid  black;
+        }
+
+        td{
+
+            padding: 10px;
+
+        }
+    </style>
+
+
+<script>
+   
+   function comenzar(){
+
+    var nombre=document.getElementById("nombre");
+
+    var apellido=document.getElementById("apellido")
+
+    nombre.addEventListener("input",validar,false);
+    apellido.addEventListener("input",validar,false);
+
+    validar();
+
+   }
+
+function validar(){
+
+    if( nombre.value=="" || apellido.value==""){
+
+
+
+        nombre.setCustomValidity("introduce nombre o apellido");
+        nombre.style.background="red";
+        apellido.style.background="red";
+
+    }
+    else{
+        
+        
+        
+        nombre.setCustomValidity("");
+        nombre.style.background="white";
+        apellido.style.background="white";
+
+    }
+
+}
+
+window.addEventListener("load",comenzar,false);
+
+
+</script>
+</head>
+<body>
+    
+    <form name="registro_usuarios" id="resgistro_usuarios" method="get">
+
+      <!--   <datalist  id="informacion">
+
+            <option value="3114088690" label="  telefono1"></option>
+            <option value="3114088587" label="  telefono2"></option>
+            <option value="3114084596" label="  telefono3"></option>
+       
+       
+       
+        </datalist>
+    </br>  </br>
+
+            <label for="telefono">telefono</label>
+            <input type="tel" name="telefono" id="telefono" list="informacion">
+
+            -->
+
+
+            <table>
+
+                <tr>
+                    <td>
+                        nombre
+                    </td>
+
+                    <td>
+                        <input type="text" name="nombre" id="nombre" placeholder="nombre">
+
+                    </td>
+
+
+                </tr>  <!-- fila-->
+
+
+                <tr>
+                    <td>Apellido </td>
+                    
+                    <td><input type="text" name="Apellido" id="apellido" placeholder="apellido"></td>
+
+                </tr>
+
+                <tr>
+
+                    <td>edad</td>
+                    <td> <input type="number" name="edad" pattern="[0-100]" id="edad" placeholder="edad"></td>
+
+                </tr>
+
+                <tr>
+                    <td>     
+
+                        <input type="submit"  value="registrar" id="enviar">
+                    </td>
+                    
+
+                </tr>
+
+                
+
+            </table>
+
+                
+
+    </form>
+
+
+</body>
+</html>
