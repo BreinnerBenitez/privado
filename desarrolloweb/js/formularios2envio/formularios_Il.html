@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Formularios II</title>
+<style>
+
+body{
+	background-color:rgb(58, 45, 240);
+}
+
+#principal{
+	
+	padding:10px 10px 10px 50px;
+	background-color:rgb(51, 180, 255);	
+  background: -moz-linear-gradient(bottom, blue , white );
+  background:-webkit-linear-gradient(bottom, blue , white);
+	box-shadow: 10px 10px 5px 0px #1127ec;
+	border-radius: 10px;
+  
+}
+
+td{
+	padding-bottom:25px;
+}
+h1{
+	text-align:center;
+}
+
+
+</style>
+<script src="../../Jquery/jquery-3.7.1.min.js"></script>
+
+<script>
+
+	$(document).ready(function(e) {
+		
+    $("#nombre").focus(function(){
+
+      var campo_nombre=$(this);
+
+      if(campo_nombre.val()==campo_nombre.attr("value")){
+
+          campo_nombre.val("");
+
+      }
+
+    });
+
+   $("#form_datos").submit(function(e){
+
+    if($("#nombre").val()=="" || $("#nombre").val()=="Obligatorio nombre"){
+
+    
+      alert("por favor completa el nombre");
+
+      $("#nombre").focus();
+
+      return false;  // no deja que los valores se envie
+    }
+
+    /*$("#nombre").focus(function(){
+
+
+      if($("#nombre").val()=="Obligatorio nombre"){
+
+        $("#nombre").val("");
+
+      } 
+
+    });*/
+
+   });
+
+   $("#edad").blur(function(){
+
+      var edad_usuario=$(this).val();
+
+      if(isNaN(edad_usuario)){
+
+        alert("porfavor valor  numerico");
+
+          $(this).focus();
+
+          $(this).val("");
+
+
+      }
+
+
+
+   });
+
+   var miArray= new Array();
+   var i = 0;
+    $(":checkbox").click(function(){  //:checkbox
+
+      miArray[i]=$(this).val();
+        //alert("el arrai: "+i+" )"+miArray[i]);
+      $("#aficiones").append(miArray[i]).append("</br>");
+        i++;
+
+    })
+
+
+    $("#pais").change(function(){
+
+      alert("pais de residencia: "+$(this).val());
+
+
+    });
+
+
+
+    
+
+	}); // final ready
+
+</script>
+</head>
+
+<body>
+<h1>Envío de datos</h1>
+<div id="contenedor">
+<form id="form_datos">
+  <table width="20%" border="0" align="center" id="principal" >
+    <tr>
+      <td>Nombre:</td>
+      <td><label for="nombre"></label> <!--placeholder="Obligatorio nombre"-->
+        <input type="text" name="nombre" id="nombre"  value="Obligatorio nombre" ></td>
+    </tr>
+    <tr>
+      <td>Apellido:</td>
+      <td><input type="text" name="apellido" id="apellido"></td>
+    </tr>
+    <tr>
+      <td>Edad:</td>
+      <td><input type="text" name="edad" id="edad"></td>
+    </tr>
+    <tr>
+      <td>Género:</td>
+      <td><p>
+        <label>
+          <input type="radio" name="genero" value="Masculino" id="masculino">
+          masculino</label>
+        <br>
+        <label>
+          <input type="radio" name="genero" value="Femenino" id="femenino">
+          femenino</label>
+        <br>
+      </p></td>
+    </tr>
+    <tr>
+      <td>País:</td>
+      <td><label for="pais"></label>
+        <select name="pais" id="pais">
+          <option>Colombia</option>
+          <option>México</option>
+          <option>españa</option>
+          <option>Perú</option>
+          <option>Chile</option>
+          <option>Argentina</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td>Aficiones:</td>
+      <td><table width="200">
+        <tr>
+          <td><label>
+            <input type="checkbox" name="deporte" value="Deporte" id="deporte">
+            deporte</label></td>
+          <td><label>
+            <input type="checkbox" name="informatica" value="Informática" id="informatica">
+            informatica</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="lectura" value="Lectura" id="lectura">
+            lectura</label></td>
+          <td><label>
+            <input type="checkbox" name="cine" value="Cine" id="cine">
+            cine</label></td>
+        </tr>
+        <tr>
+          <td><label>
+            <input type="checkbox" name="bares" value="Bares" id="bares">
+            bares</label></td>
+          <td><label>
+            <input type="checkbox" name="naturaleza" value="Naturaleza" id="naturaleza">
+            Naturaleza</label></td>
+        </tr>
+       
+      </table></td>
+    </tr>
+    <tr>
+    <td colspan="2" align="center"><input type="submit" value="enviar" id="comprobar"></td>
+   
+    </tr>
+  </table>
+  </form>
+</div>
+
+<div id="aficiones"></div>
+
+</body>
+</html>

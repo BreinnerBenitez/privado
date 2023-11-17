@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style>
+
+.linkdestacacursoss{
+background-color: green;
+
+}
+
+.linkdestacacursos{
+	background-color:#F00;
+	
+}
+
+a{
+	display:block;
+	margin-bottom:20px;
+	font-size:24px;
+}
+table{
+	text-align:center;
+	border:none;
+}
+
+td{
+	border:none;
+}
+
+#contieneEnlaces {
+	position: absolute;
+	left: 31px;
+	top: 65px;
+	width: 400px;
+	height: 649px;
+	z-index: 1;
+	padding-top:100px;
+}
+</style>
+
+<script src="Jquery/jquery-3.7.1.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+
+//$("a[href^='http://']").addClass("linkdestacacursos");
+
+document.getElementById("cursos").addEventListener("click",resaltacursos,false);
+document.getElementById("informacion").addEventListener("click",resaltaejemplos,false);
+
+})
+
+
+ function resaltacursos(){
+
+	$(".cursos").addClass("linkdestacacursos");
+	$(".ejemplos").removeClass("linkdestacacursoss");
+
+ }
+
+
+function resaltaejemplos(){
+
+ $(".ejemplos").addClass("linkdestacacursoss");
+ $(".cursos").removeClass("linkdestacacursos");
+
+}
+
+</script>
+
+
+</head>
+
+<body>
+
+<div id="contieneEnlaces">
+
+<a href="https://www.linkedin.com/in/breinner-benitez-02b1b925a/" target="_blank" class="cursos">
+Breinner benitez Linkedin
+</a><br>
+
+<a href="http://www.google.com" target="_blank" class="ejemplos">
+Google
+</a><br>
+
+<a href="https://github.com/BreinnerBenitez" target="_blank" class="cursos">
+breinner benitez repositorio
+</a><br>
+
+<a href="#" target="_blank" >
+Remover y reemplazar
+</a><br>
+
+<a href="https://news.google.es/" target="_blank" class="ejemplos">
+Noticias google
+</a><br>
+
+<a href="https://breinnerbenitez.github.io/Calculadora/" target="_blank" >
+Calculadora
+</a>
+</div>
+
+<table width="100%" border="1">
+<tr>
+<td>info breinner&nbsp;&nbsp;<input type="button"  value="info breinner" id="cursos"></td>
+<td>Información adicional&nbsp;&nbsp;<input type="button"  value="Información" id="informacion"></td>
+</tr>
+
+
+
+
+</body>
+</html>

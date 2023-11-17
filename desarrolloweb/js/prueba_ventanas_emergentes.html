@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<script src="Jquery/jquery-3.7.1.min.js"></script>
+<script>
+
+	var inicia = open("http://www.google.com","pildoras","width=300","height=200");
+
+
+    $(document).ready(function(e){
+
+        $("#botonCerrar").click(function(e){
+
+        
+             inicia.close();
+        
+            e.preventDefault();
+        
+        });
+
+
+
+    });
+	
+
+</script>
+</head>
+
+<body>
+<a href="http://www.google.com">google</a>
+<br><br><br>
+<a href="" id="botonCerrar">Cerrar</a>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style>
+
+#imagenes{
+	width:1475px;
+	margin:auto;
+	
+}
+img{
+	padding:20px 30px;
+}
+
+#mensaje_img1 {
+	position: absolute;
+	left: 623px;
+	top: 392px;
+	width: 581px;
+	height: 215px;
+	background-color: rgb(153, 255, 153);
+	font-size: 24px;
+	font-weight: bold;
+	padding: 25px;
+	border: dotted 2px #00F;
+}
+
+#mensaje_img2{
+
+
+	position: absolute;
+	left: 623px;
+	top: 392px;
+	width: 581px;
+	height: 215px;
+	background-color: rgb(155, 153, 255);
+	font-size: 24px;
+	font-weight: bold;
+	padding: 25px;
+	border: dotted 2px #00F;
+
+}
+
+
+#mensaje_img3{
+
+	position: absolute;
+	left: 623px;
+	top: 392px;
+	width: 581px;
+	height: 215px;
+	background-color: rgb(233, 233, 8);
+	font-size: 24px;
+	font-weight: bold;
+	padding: 25px;
+	border: dotted 2px #00F;
+}
+
+
+
+#mensaje_img4{
+
+	position: absolute;
+	left: 623px;
+	top: 392px;
+	width: 581px;
+	height: 215px;
+	background-color: rgb(243, 31, 16);
+	font-size: 24px;
+	font-weight: bold;
+	padding: 25px;
+	border: dotted 2px #00F;
+
+}
+
+</style>
+
+<script src="Jquery/jquery-3.7.1.min.js"></script>
+
+
+<script>
+/*$(document).ready(function(){
+
+$("#mensaje_img4").hide();
+$("#imagen1").hover(mensaje_on,mensaje_off); // hover funcionencima funcion_cuandoquita
+
+
+});
+
+function mensaje_on(){
+
+$("#mensaje_img4").show();
+
+}
+
+function mensaje_off(){
+
+$("#mensaje_img4").hide();
+
+}
+*/
+
+var imagenes; 
+var losdiv;
+$(document).ready(function(){
+
+ imagenes = document.querySelectorAll("img");
+ losdiv = document.querySelectorAll("div");
+for(var i=0;i<imagenes.length;i++){
+	
+	$(losdiv[i]).hide();	
+
+	$(imagenes[i]).hover(mensaje_on,mensaje_off);
+
+}
+
+});
+
+function mensaje_on(e){
+	
+	if(e.target==imagen1){
+
+		$(losdiv[0]).show();
+	}else if(e.target==imagen2){
+
+		$(losdiv[1]).show();
+	}else if(e.target==imagen3){
+		
+		$(losdiv[2]).show();
+
+	}else if(e.target==imagen4){
+		$(losdiv[3]).show();
+
+	}else{
+
+	}								    // for 
+
+
+}
+
+function mensaje_off(e){
+	if(e.target==imagen1){
+
+$(losdiv[0]).hide();
+}else if(e.target==imagen2){
+
+$(losdiv[1]).hide();
+}else if(e.target==imagen3){
+
+$(losdiv[2]).hide();
+
+}else if(e.target==imagen4){
+$(losdiv[3]).hide();
+
+}else{
+
+}	
+}
+</script>
+</head>
+
+<body>
+
+<div id="mensaje_img1">Preciosa encina en mitad de la meseta castellana......</div>
+<div id="mensaje_img2">Preciosa encina en mitad de la meseta castellana......</div>
+<div id="mensaje_img3">Preciosa encina en mitad de la meseta castellana......</div>
+<div id="mensaje_img4">Preciosa encina en mitad de la meseta castellana......</div>
+
+
+
+<div id="imagenes">
+
+<img src="imgs/1.jpg" id="imagen1">
+<img src="imgs/2.jpg" id="imagen2">
+<img src="imgs/3.jpg" id="imagen3">
+<img src="imgs/4.jpg" id="imagen4">
+
+
+
+</div>
+</body>
+</html>

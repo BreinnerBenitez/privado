@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=""> <!-- asi se inserta la libreria-->
+    <script src="ubicacioncodigo/Jquery/jquery-3.7.1.min.js"></script>
+<script>
+
+ $(document).ready(function(){
+
+/*
+    var imagenes=document.querySelectorAll("#carrete img");
+
+        for(var i=0;i<imagenes.length;i++){  //js desaparece las imagenes
+
+        imagenes[i].style.visibility="hidden";
+
+} */
+
+   // $("#carrete img").hide();  // jquery desaparece las fotos
+
+
+ 
+ /* var anun=document.getElementById("anuncio");
+
+    anun.style.width="500px";
+    anun.style.height="500px";                                  // java script
+    anun.innerHTML="vende";
+    anun.style.background="black";
+    anun.style.color="white";
+ */
+
+$("#anuncio").width(500).height(500).text("vende").hide().fadeIn(5000); // funciones encadenadas jquery
+
+
+ })  
+
+ 
+
+</script>
+</head>
+<body>
+    <div id="carrete">
+    <h1>iamgen</h1>
+
+    <img src="ubicacioncodigo/imgs/arbol.jpg" alt="imagen" width="250px" height="250px">
+    <img src="ubicacioncodigo/imgs/arbol.jpg" alt="imagen" width="250px" height="250px">
+    <img src="ubicacioncodigo/imgs/arbol.jpg" alt="imagen" width="250px" height="250px">
+
+</div><br>
+
+<div id="anuncio" style="background:black; color: white;">
+
+   anuncio 
+
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Efecto anidadas</title>
+<style>
+
+#titulo{
+	margin-left:150px;
+}
+
+#foto p{
+	background-color:#000;
+	color:#FFF;
+	font-size:24px;
+	text-align:center;
+	font-weight:bold;
+	width:300px;
+}
+h1{
+	text-align:center;
+}
+
+</style>
+<script src="Jquery/jquery-3.7.1.min.js"></script>
+<script>
+
+$(document).ready(function() {
+	
+ $("#titulo").hide();
+
+ $("#foto img").width(60).height(40).click(function(){
+
+	$(this).animate({
+		
+		marginLeft:"150px",
+		width:"350px",
+		height:"200px"
+
+	},1000,function(){
+
+		$("#titulo").fadeIn(1000).delay(1000).fadeOut(1000);
+		
+
+
+	}).delay(4000); // termina funcion animate
+
+	$(this).animate({
+		
+		marginLeft:"0px",
+		width:"60px",
+		height:"40px"
+		
+	},1000,);  // segundo aniamte
+
+
+ }); // funcion click
+
+
+	
+});// termina función ready
+
+
+
+
+</script>
+</head>
+
+<body>
+<h1>
+
+Prueba imagen
+
+</h1>
+
+<div id="foto">
+
+	<img src="imgs/arbol1.jpg" width="300" height="200" id="imagen1">
+
+	<p id="titulo">Árbol</p>
+
+</div>
+
+</body>
+</html>
