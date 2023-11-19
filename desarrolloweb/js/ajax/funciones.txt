@@ -1,0 +1,7 @@
+get() xml json 
+post()xml json
+load() html
+-------------------------------------------
+errores 
+f12
+firebug=depuraccion
