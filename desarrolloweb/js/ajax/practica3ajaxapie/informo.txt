@@ -1,0 +1,7 @@
+loadstar=comienza al momento de descarga
+progress= cada 50 milisegundos se ejecuta la funcion
+abort=si se aborta la conexion
+error= accion durante la conexion
+load= solo si la carga es exitosa
+timeout= un tiempo concreto para el evento
+loadend=falle o no falle la conexion se desencadena la accion
