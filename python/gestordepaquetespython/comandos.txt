@@ -1,0 +1,24 @@
+pip install setuptools = herramientas
+crear archivo setup.py= 
+from setuptools import setup
+
+setup(
+    
+    name="paquetecalculos",
+    version="1.0",
+    description="paquete de redondea",
+    author="juan",
+    author_email="jbgb_1999@hotmail.com",
+    packages=["paquetecalculos","paquetecalculos.potenciasyreondeos"]
+    
+    
+)
+
+python setup.py sdist =  convierte carpeta en paquete
+pip3 install arcvhivopaquete= instala el paquete en las variables de entorno
+pip uninstall archivopaquete=desintala paquete
+=================
+pip install pyinstaller = para sacar paquetes ejecutables
+pyinstaller archivo.py = crear archivo ejecutable
+pyinstaller --windowed --onefile --icon=./logo.ico archivo.py = crea el archivo sin ventana emergente y solo el ejecutable
+
