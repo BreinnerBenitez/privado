@@ -21,4 +21,7 @@ pip uninstall archivopaquete=desintala paquete
 pip install pyinstaller = para sacar paquetes ejecutables
 pyinstaller archivo.py = crear archivo ejecutable
 pyinstaller --windowed --onefile --icon=./logo.ico archivo.py = crea el archivo sin ventana emergente y solo el ejecutable
-
+====================django==============
+django-admin startproject (nombreproyecto) =  crear proyecto de django
+python manage.py migrate = iniciar el  proyecto
+python manage.py runserver =inicar el servidor
