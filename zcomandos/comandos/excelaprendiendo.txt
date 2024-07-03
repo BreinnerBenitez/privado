@@ -1,0 +1,33 @@
+
+estoy aprendiendo excel por que las empresa lo piden algunas para trabajar
+como auxiliar de informatica:
+ctrl + f1 = minimiza las cintas de opciones
+ctrl + i = buscar celdas desde hoja
+tabulador + shif = dentro de un rango derecha y izquierda
+enter + shif= bajo y arriba dentro de un rango
+=SI.ERROR(BUSCARV(E2; A2:C6; 3; FALSO); 0) = si no es exacto pone 0
+=SUMAR.SI.CONJUNTO('base dati'!$D$3:$D$8; 'base dati'!$C$3:$C$8; F1) = te suma el pimer conjunto comparando el segundo con el tercero
+= FILTRAR(A2:B10, B2:B10>30) = esta en la version 2019 
+shift + f2 = se pone nota en la celda
+funcion sumar,promedio,max,min
+funcion si = =si()
+funcion Y = and
+funcion O = or
+CONCATENAR = 
+360 DIAS
+ESPACIOS
+
+====================funciones de fecha=======================
+funcion hoy() = fecha de ahora
+funcion ahora() = fecha de hoy con hora
+funcion dia()= me saca el dia de una fecha
+funcion mes () = me saca el mes de una fecha
+funcion año () = me saca el año de una fecha
+
+vistas personalizadas = para guardar vistas personalizadas
+========== herramientas de analisis=============
+buscar objetivo 
+definir la celda = al total
+con el valor = el valor disponible
+para cambiar la celda = diferentes cuotas
+= pago (interes/cuotas;reper-pagos del prestamo;va-capital)

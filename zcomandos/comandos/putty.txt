@@ -1,0 +1,41 @@
+========================SHH===========================
+
+sudo apt-get install openssh-server
+ssh -V= ver version de ssh
+/etc/ssh/sshd_config = ruta de configuracion de ssh parte de port
+
+sudo systemctl restart ssh = reinicia el servicio ssh
+sudo service ssh restart = forma anterior de hacerlo
+puerto que utilice = 2235
+cifrado 4096
+authorized_keys = archivo para pehar clave publica en el servidor y conectarme con ese usuario a ese servidor /usuario/.ssh
+sshpass 'contraseña' ssh usuario@localhost -p 22 
+ssh-keygen = generar claves para ssh
+ssh-copy-id -i id_rsa usuario@hostname =  acepta la clave privada para que pueda ser usada 
+tail -f archivo = mira en tiempo real
+-----------------------------------proxy ------------
+sudo service squid status =  administracion
+sudo systemctl status squid = administracion
+puerto 3128 = usa por defecto
+
+/etc/squid/squid.config = este es  el archivo de configuracion para squid
+#reiniciar el servidor  squid una ves cambiado el puerto en http_port 3128
+ss -antpl | grep 5001 = muestra si el puerto esta activo
+sudo ufw allow 5001/tcp = habilita el trafico por el puerto 5001
+sudo ufw deny 5001/tcp = desabilita el puerto del firewall
+#buscar la  linea http_acces deny all para comentar la linea y permita todas las conexiones
+#luego busco TAG: follow para especificar lo que debe estar bloqueado mirar abajo
+acl listanegra dstdomain youtube.com
+acl listanegra2 dstdomain facebook.com
+http_access deny listanegra
+http_access deny listanegra2
+http_access allow all
+# para darle mas espacio de cache al servidor proxy
+100 16 256 = buscar en el archivo de configuracion
+
+
+
+
+
+Squid
+pendiente openvpn y wireguard

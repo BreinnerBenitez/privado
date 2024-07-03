@@ -1,0 +1,586 @@
+estos son comadnos utilizados 
+
+dkms == compilar modulos para karnel
+ataves de enroll mok
+dmesg=registro del karnel
+find . | cpio -ov > backup.cpio = me crea copia del directorio acual
+cpio -idv  < backup.cpio = descomprime archivo cpio
+dpkg------------------------------
+dpkg --list= lsita de paquetes
+dpkg -i = instalar paquetes deb 
+dpkg -R = todos los paquetes de directorio 
+dpkg -r = elimina un paquete instalado pero deja archisvos de configuracion
+dpkg -P = elimina todo sin dejar archivo de configuracion 
+wget---------------------------------------------------------
+wget -q = desccarga todo de forma silenciosa
+wget -c (https://www) = descarga todo completo si tiene fallas el internet 
+wget -i = descarga todos los vinculos de un txt 
+wget -P = busco directorio donde quiero que quede 
+wget -O = cambiar nombre de la descarga 
+wget -b = descarga en segundo plano
+wget -log = cra archivo log para ver informacion
+wget --mirror --convert-links --page-requisites --no-parent -P documents/websites/sitioweb =descarga web completas 
+problemas con apt -----------------------------------------------------------
+apt-get autoremove 
+apt-get autoclean
+apt-get update
+apt-get -f install  
+apt-get dist-upgrade=instala ulrima version de karnel
+apt-get install lubuntu-restricted-extras = instala aplicaiones necesarias e el sistema 
+cat  /proc/version = version del gcc
+uname -r = version del karnel
+lsb_release -a = version de ubuntu
+tar compresiones--------------------------------------------------------------
+tar -cvzf (nuevo nombre del archivo.tar) directorio/directorio = comprime archivos en .tar y. gz
+tar -xvf (nombre del archivo) -C  direcorio/direcotrio = descomprime el archivo en el directorio 
+tar -tvf = muestra lo que tiene el archivo comprimido
+tar -xvf sampleArchive.tar --wildcards '*.jpg' = descomprime archivo con misma extension
+tar rvf (nombre del comprimido ) + nombre de archivo a ingresar = ingresa archivo o directorios a el .tar
+gzip -9 = comprimir 
+gzip -d = descomprimir archivos gzip
+zip -r archivo.zip carpeta/ = comprime en archivo zip la carpeta  y pone nombre el nombre de archivo
+7z x archivo = con este comando puedo descomprimir cualquier tipo de archivo comprimdo y con l miro la informacion
+unrar -x extraer =  archivos winrrar es diferente a winrrar 
+evince = abre archivos pdf 
+nmap -p 22 localhost = para mirar el puerto 
+netstat -i 2235 = muestra la informacion del puerto
+alias----------------------------------------------------------------------------------
+ 
+alias (nombre del alias)='comando'
+
+grep-----------------------------------------------
+grep (nombre del archivo) -e "articulo buscado" = esto busca dentro del archivo algo concreto     
+grep (nombre del archivo) -e "aritculo buscado" > (archivo creado para copiar todo) = copiar busqueda
+grep -i (nombre del archivo) -e "articulo buscado" = buscar con caractere diferentes
+grep -i -n (nombre del archivo) -e "articulo buscado" = buscar y listar 
+grep -i -n -r (directorio/nombre del archivo) -e "articulo buscado" = busca dentro de un directorio
+history -c = borrar 
+history -w = guardar los cambios
+find----------------------------------------------------------------------------------
+find (directorio) -name *.txt
+zip------------------------------------------------------------------
+zip (nick name  del archivo a crear ) (archivos a comprimir *.txt)= comprime los archivos  
+unzip  (nombre del archivo) = descomprime el archivo= 
+unzip -vl (nombre del archivo a visualizar )= visualiza el archivo 
+curl------------------------------------------------------
+curl  (pagina visuallizar archivos csv)= visualiza  en cosola 
+curl  (pagina visuallizar archivos csv) (pipe|+more)= lo lee con aplicacion more
+---------------------------------------------------------
+------------------------------------------------------------
+vim comandos dnetro del archivo 
+:q = salir 
+enter a la tecla i  = insertar
+:w = mostar caracteres
+:q! = cerrar forzado 
+:wq =guardar y salir 
+:x = guardar y salir 
+:set number = enumera en el archivo vim
+/nombre = te busca en el archivo vim
+-----------------------
+vim archivo .vimrc
+set shoumode
+set autoindent
+set tabstop=4
+set expandtap
+syntax on 
+
+archivo .nanorc
+set autoindent
+set tabsize 4
+set softwrap
+set nowrap
+set nohelp
+set linenumbers 
+--------------------------------------------------------------
+printenv = muestra mis variables de entorno
+echo =  salida de datos
+export = crea variables 
+which = nuestra donde esta la ruta del binario 
+ 
+--------------------------------------------------
+comandos para bash 
+variable=$1 = primer dato sera guarado en esta variable
+$#= cuantos parametros hay 
+$*= cuales son los parametros escritos
+-----------para el script interativo----------------
+read -p "" $variable  = aqui pide al usuario datos y guarda en la variable
+-----------------operadores-----------------
+-eq is equal to // Igual a
+-ne is not equal to // No es igual a
+-gt is greater than // Mayor a
+-ge is greater than or equal // Mayor o igual a
+-it is less than // Menor a
+-le is less than or equal to // Menor o igual a 
+--------------------------------------------------
+-----------------------------------------------------
+ejemplo de sintaxis condicionales 
+
+if (( $edad >= 18 )); then
+    echo "eres mayor de edad $name "
+else
+    echo "no eres mayor de edad $name"
+fi
+
+echo "-------------------------------------"
+if [ $edad -ge 18 ] && [ $ano -eq 2022 ]; then
+    echo "eres mayor de edad y puedes votar"
+else
+    echo "no puedes votar"
+fi
+
+
+---------------------------------------------------------------
+--------------------------------------------------------------------
+
+ejemplos de arreglo y siclos 
+
+numeros=(1 2 3 4 5 )
+nombres=("breinner" "ana" "alberto" "felipe")
+rangos=({a..z} {1..30})
+
+echo "------------- imprimir todos los valores"
+
+echo "estos son numeros; ${numeros[*]}"
+echo "arreglos de nombres${nombres[*]}"
+echo "arreglos de rangos${rangos[*]}"
+
+echo "---------- tamaños de los arreglos---------"
+
+echo "tamaño de arreglos nuemros ${#numeros[*]}"
+echo "tamaño de arreglos nombres ${#nombres[*]}"
+echo "tamaño de areglos de rangos ${#rangos[*]}"
+
+
+echo "--------------imprimir un elemento del arreglo-----------"
+echo "elemento numero 3 del arreglo  numero: ${numeros[3]} "
+echo "elemento numero 3 del arreglo nombres: ${nombres[3]}"
+echo "elemento numeero 3 del arreglo rangos: ${rangos[3]}"
+
+echo "----------------manipular arreglos--------------- "
+unset numeros[0]
+echo "prueba de elminacion ${numeros[*]}"
+numeros[0]=1
+echo "ingrese  el numero nuevamente ${numeros[*]}"
+
+echo "--------------------for------------------------"
+
+for num in ${numeros[*]}
+do
+    echo "numeros: $num"
+done
+
+echo "-----------------------------------------"
+
+for ((i=0; i<${#numeros[*]}; i++))
+do
+    echo "numero ${numeros[i]}"
+done
+----------------------------case------------------------------------
+-------------------------------------------------------------------
+
+ejemplo 
+ 
+opcion=""
+read -p "ingre una opcion a-b: " opcion
+
+if [ "$opcion" == "a"  ]; then
+    echo "entro entro al condicional"
+else
+    echo "no ingrese al condicional"
+fi
+
+case $opcion in
+    "a") echo "ha ingresado la opcion a";;
+    "b") echo "ha ingresado la opcionb)";;
+    [c-z]) echo "aha ingresado un valor fuera del rango ";;
+    *) echo "presiono opcion fuera del rango";;
+esac
+
+---------------crear archivos y ingresar valores en ellos-------------
+
+opcion=""
+nombrea=""
+texto=""
+read -p "desea generar un direcotiro 1 o un archivo 2 " opcion
+if (( $opcion == 1 )); then
+
+    read -p "ingrese el nombre del directorio" nombrea
+    mkdir -m 777 $nombrea
+fi
+
+if (($opcion == 2)); then
+    read  -p "ingrese el nombre del archivo con extension" nombre
+    touch  $nombre
+    read -p "ingrese un texto para el archivo $nombre" texto
+    echo   $texto >> $nombre
+    echo "contenido del archivo"
+    cat  $nombre
+fi
+
+---------------------funciones-----------------------------
+------------------------------------------------------------
+funcion1 () {
+    echo "hola mundo "
+
+}
+funcion1
+
+parametros () {
+     echo "mi nomvre es $1 y mi apellido es $2"
+
+
+}
+nombre=""
+apellido=""
+  read -p "porfavor ingresa el nombre" nombre
+  read -p "porfavor ingresa el apellido"  apellido
+
+ parametros $nombre $apellido
+
+===================myslq con workbench===============
+
+sudo apt-get install mysql-server
+sudo apt-get install workbench
+mysql --version
+man mysql = manual de mysql
+mysql -u root = ingresar aseso local
+mysql -h localhost -u root= ingresar desde otro host 
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'contra';
+
+============tipo de datos sql==================
+binary = numero binarios maximo 50
+char= caracteres maximo 8000 y exacto
+datetime= fecha
+datatime2 = fecha con mas capacidad
+image =  binarios capacidad 2gb
+int  = entero
+bigint = entero capacidad duplicada 
+money = enteros para moneda 
+numeric = formato decimal
+decimal = formato decimal primer numero precision el segundo escala 
+smalldatetime = fecha capacidad minima
+smallint =  capacidad limitada
+tinyint= int 0-255
+varchar = capacidad se adecua
+=====sentencias sql ====
+create database nombre_basedatos = crear base de datos 
+
+create table nom_bretabla 
+(id int not null,
+nombre varchar (30) not null
+apelli varchar (30) not null
+telefono varchar (10) not null); = crea tabla 
+
+select * from nom_table= muestra tabla
+
+insert into nom_tabla (columna1,columna2)
+values (valor,valor);= ingresar valores en la base de datos
+
+select distinct nom_columna 
+from nom_tabla = muestra valores unicos de la columna 
+
+select * from  nombre_tabla
+order by nom_columna = muetra y ordena  a-z 1... 
+
+
+operador  between 1 and 5= me busca en rango
+
+update nom-tabla set nom_columna = 'atributo' where condicion; = modificar tabla
+
+delete from nom_table where condicion = borra dato de la tabla
+
+alter table nom_table add nom_columanueva tipo de dato = agregar columna
+
+exec sp_rename 'nom_tabla.nom_colum', 'nom_nuevo', 'column'; = renombra colum
+
+alter table nom_table drop column nom_columna = elimina columna 
+
+exec sprename 'nom_table', 'nom_nuevo';= renombra  tabla
+
+drop table nom_table = elimina tabla
+===================informacion de rutas================================
+dev=conexion al hardware por scritp
+./dev/makedev = aplicacion que compila codigo fuente
+./etc/passwd = informacion de cada usuario
+./etc/shells = listas de intrepes de comando
+
+./etc/init.d/cups/ restart = comando para restar puertos impresoras
+
+  cups= sistema de impresoras desarrollado por apple 
+  http://localhost:631 = aplicacion web para cups
+  etc/init.d = directorio donde estan las scritp de arranques
+
+================================= windows comando dos===============
+contrasea 
+* ingresar a system32
+* primer comando copy ultiman.exe ultiman.bak
+* copy cmd.exe ultiman.exe
+* shutdown /r /t 5
+=========
+una ves reinicie ingreso en accesibilidad
+*net user = lista de usuarios
+* net user (nombre de usuario) (password nueva) = cambia contra
+==========
+volver a la normalidad
+ingresar a system32
+*del utilman.exe
+*rename utilman.bak utilman.exe
+
+---------------------------------
+
+control keymgr.dll =visusalizar ventana de credenciales
+---
+net use * /delete  = eleminar credenciales guardadas
+cmdkey /list = lsita credenciales guardads
+cmdkey /list:nombre_objeto = lsita credenciales guardads
+cmdkey /add:nombre_objeto /user:username /pass:contraseña = agregar unidad de red
+cmdkey /delete:nombre_objeto
+cmdkey /delete /ras= eleminar credenciales ras
+que es RAS en windows
+---------------
+powershell
+cd,sl,pwd= pwd
+dir,ls= ls
+
+new-item (nombre de archivo) file o directory = crear archivo o direc
+copy-item,copy,cp,cpi = copiar
+move-item,mi,move,mv = mueve archivos
+remove-item (archivo)= borra item
+
+
+===========================
+solucion de problemas de las impresoras 
+primero ls y awk para columnas de os lp
+ls -l lp* | awk '{print $9}'
+luego filtrar con echo y variable | awk
+filtro=$(echo $prueba1 | awk '{print $1}')
+luego anidr impreora con usr/sbin/lpadmin
+/usr/sbin/lpadmin -p BLANCA -F -v parallel:/dev/prueba/$filtro
+
+
+=============================================================================================
+
+Ubuntu server comandos y curso
+
+neofetch = para mostrar informacion completa
+
+last -u (usuario)= mira ultima hora de ingreso de un usuario
+useradd -c "jhon" -g 10 -d /home/usuario01 -m -s /bin/bash usuario01=crea usuario grupo10 direcotrio -m crea directorio -s asigna shell
+sudo mysql -h localhost -P 1308 -u root -p = ingresa a mysql
+sudo service mysql status= estado del servidor mysql
+passwd usuario01 = asigna contraseña
+sudo userdel -r usuario01 = borra todo hasta el  directorio
+
+
+================================
+sudo vboxmanage extpack install (nombrepack)= para instalar pack VBox
+
+curso de linux comandos basicos
+
+sudoers = archivo de configuracion de permisos 
+%admin   ALL=(ALL:ALL) NOPASSWD: ALL  = usuarios que pueden ingresar comandos sin contraseña
+%sudo  ALL=(ALL:ALL) ALL =  grupo que pueden ingresar comandos con sudo
+apt install net-tools = redes ifconfig 
+ip addr show = muestra informacion con herramienta ip 
+
+htop= monitoreo editado
+runlevel=nivel de ejecucion rc5.d,  init.d script del sistema
+==================================================================
+
+curso del mejor
+
+comandos nuevos
+
+whoami= muestra quien soy
+id=muestra grupos de usuario
+which = muestra ruta del binario
+variables de entorno= $SHELL $HOME $PATH
+
+echo $?= muestra si es el exitoso el comando
+/dev/null = desaparece todo lo que vaya alli abujero negro
+comando 2>/dev/null = abujero negro el error
+comando 2&>/dev/null = abujero negro de la salida de datos
+comando 2&>/dev/null & = abujero negro y ejecuta en segundo plano
+comando 2&>/dev/null & disown  = abujero negro ejecuta en segundo plano y depende del padre
+
+exec 3<> file = crea el archivo con su descriptor de archivo
+whoami >&3 = ingresa la salida al archivo
+pwd >&3 = ingresa la salida al archivo
+exec 3>&- = cierra el descriptor de archivo
+echo "escribiendo" >> texto.txt = ingresa datos con saltos de lineas 
+bat /etc/login.defs | grep "ENCRYPT_METHOD"= muestra encriptacion algoritmo
+
+chgrp= cambiar grupo de un archivo
+
+useradd pepe -s /bin/bash -d /home/pepe = crear usuario   
+
+chown proptario directorio= cambia de propietario
+
+groupadd alumnos = crear grupo 
+
+usermod -a -G alumnos pepe= mete al usuario pepe al grupo alumnos sin dejar los otros grupos
+
+chmod +t= mas seguridad a un directorio
+
+lsattr = es para ver permisos especiales
+chattr= para poner permisos especiales 
+chattr +a archivo = solo ingresar datos al final
+chattr +i archivo = ni el root puede eliminarlo
+which python3.9 | xargs ls -l = lista la salida del primer comando 
+pkexec = abre archivos para editarlos como administrado
+find / -type f -perm -4000 = binarios con suid 
+-perm = archivos con permisos especificos
+deluser usuario grupo = saca el usuario de un grupo 
+
+suid= binario que aplico a los archivos
+guid= al grupo
+Euid= usuario efectivo id
+
+getcap -r / (y enviar al null) = capabiliti del sistema
+setcap =asignar capabilitis
+!$ = ultimo argumento lo toma del comando anterior
+setcap cap_setuid+ep /usr/bin/python3.9
+umask= condiguracion de permisos  para archivos .bashrc
+PS1= variable que contiene configuracion de prompt en .bashrc
+
+-------------------------------------------------------------------------------
+find / -group pepe 2>/dev/null = buscar directorios y archivos del grupo pepe
+
+find / -group pepe -type d 2>/dev/null = buscar directorios  del grupo pepe
+find / -group pepe -type f 2>/dev/null = buscar archivos   del grupo pepe
+
+find / -user root -writable 2>/dev/null = buscar archivos de escritura con permisos de root
+
+find / -user root -executable -type f 2>/dev/null = buscar archivos con permisos de ejecucion
+
+find / -name dex\*.sh 2>/dev/null = busca con comodines  
+
+find -iname mi_file= no distingue mayusculas y minusculas
+
+find  / -name "*.txt" =buscar con comodin
+
+find -readable  -executable = que sean leibles y ejecutable
+
+find -size 1033c =tamaño por bytes
+
+
+d – directorio o carpeta
+f – archivo normal
+l – enlace simbólico
+c – dispositivos de caracteres
+b – dispositivos de bloque
+
+find /home/pepe -atime -1 = menos de un dia 
+find / -mmin -1 = busca en minutos
+
+c – bytes
+k – kilobytes
+M – megabytes
+G – gigabytes
+b – trozos de 512 bytes
+
+find / -size 10M
+
+tail -n 1 = muestra ultima linea del archivo 
+
+awk '{print $2}'= imprime por columna 
+
+
+ip a | grep eno1 | tail -n 1 | awk '{print $2}'= imprime la ultima fila  y la ip
+
+awk '{print $1}' FS="/" = cambia delimitador de espacio al asignado entre comillas
+
+ ip a | grep eno1 | tail -n 1 | awk '{print $2}' | awk '{print $1}' FS="/" = muestra solo mi ip
+
+tr "letras a cambiar" "remplazo de letras" = cambia una salida de letras por otras salidas de datos
+tr -d '' = elimina los espacios
+
+cut -d '/' -f 1 = delimitador y imprime la primera columna
+
+------------------------------------------------------------------------
+#!/bin/bash
+
+#Colours
+greenColour="\e[0;32m\033[1m"
+endColour="\033[0m\e[0m"
+redColour="\e[0;31m\033[1m"
+blueColour="\e[0;34m\033[1m"
+yellowColour="\e[0;33m\033[1m"
+purpleColour="\e[0;35m\033[1m"
+turquoiseColour="\e[0;36m\033[1m"
+grayColour="\e[0;37m\033[1m"
+
+echo -e "\n${yellowColour}[+]esta es tu ip ->${endColour} ${redColour}$(ip a | grep eno1 | tail -n 1 | awk '{print $2}' | awk '{print $1}' FS="/")${endColour}\n"
+
+
+-----------------------------------------------------------------------------
+
+ping -c 1 = solo envia un paquete
+
+ssh bandit0@bandit.labs.overthewire.org -p 2220 = overthewire
+sshpass -p 'contraseña' ssh usuario@dominio -p 22 
+
+---------------------------------------------------------------------
+
+grep -r "\w" 2>/dev/null = me busca de manera recursiva con la expresion regular w
+ 
+=======================================ADMINISTRDOR DISCOS========================
+
+fdisk -l dsa =  lista discos 
+fdisk /dev/dsa= particionar
+mkfs.ntfs /dev/dfa= formatear en ntfs
+mkfs.ext4 /dev/dfa= formatear en ext4
+
+echo "esto es una prueba probando" | sed 's/prueba/breinner/g' = sed te cambia palabras y con g te cambia todo 
+
+sort = organiza la lista a - z  
+uniq -u = campo unico 
+uniq -d = campo duplicado 
+base64 = codifica
+base64 -d = descodifica 
+xxd = comando pone hexadecimal
+xxd -ps = muestra hexadecimal puro sin ascci 
+tee = muestra salida estandar y los pasa a un archivo
+netcat o nc = para abrir puertos 
+/proc/net/tcp = en estos temporales estan los puertos abiertos  
+ncat --ssl = version mejorada de netcat cifrado ssl
+ping -c 1 = un solo paquete 
+seq inicio final = escanea secuencia de numeros
+timeout 1 bash -c
+nmap --open -T5 -V -n -p31000-32000 127.0.0.1 =  T de temporizador  v de verbose  n no resolucion dns
+head -n 5 = esto muestra las primeras lieneas de los comandos 
+wc -l * = muestra las lineas de los archivos de texto 
+diff = diferencia de archivo
+bash -p = ejecucuion privada sin configuracion de .bashrc
+nc -nlvp 4646 = me pongo  en escucha por el puerto 4646 como servidor  para enviar comandos al equipo
+nc -l 2389 > test = esto me guarda todo en el archivo test del servidor
+cat testfile | nc localhost 2389 = envia por ese puerto la informacion
+ nc -w 10 localhost 2389 = 10 segundos se caera la conexion
+nc -k -l 2345 = la k forza a que no se cierre la conexion en el servidor
+nc -q 5 localhost puerto =segundos despues para que termine la conexion
+============================================CRON=====================
+comando crontab -e -u usuario = archivo de crontap del usuario
+el archivo crontap del sistema = /etc/crontap aqui se encuentra 
+minuto(0-59),hora(0-23),dia(1-31) del mes,mes(1-12),dia de la semana(1-6 0o7=domingo)= secuencia de cron
+crontab -e = archivo para configuracion crontab de cron para usuarios
+watch -n 30 = revisar un archivo en consola cada ciertos segundos
+crontab -ri= borrar crontab
+crontab archivo = Remplaza el existente archivo crontab con un archivo definido por el usuario
+crontab -e = Editar el archivo crontab del usuario, cada linea nueva sera una nueva tarea de crontab.
+crontab -l = Lista todas las tareas de crontab del usuario
+crontab -d = Borra el crontab del usuario
+crontab -c directorio = direcion del direcotrio crontab
+crontab -u usuario -l = mirar procesos de otro usuario 
+/var/spool/cron = ruta de las tablas de tareas
+==========================
+md5sum = hash algoritmo 
+xrandr = para transmitir video
+xfce4-settings-manager = me abre la configuracion en kali
+thunar = gestor de archivos
+p10k configure = este comando es para volver a pasar la configuracion de zsh 
+who = ver los usuarios que estan conectados al sistema o w
+head -c 3 = muestra las primeras letras
+---------------------------------
+wsl --list --online = ver que sistemas puedo instlar en windows de ubuntu
+================================================
+Phonebook.cz = correos de organizaciones

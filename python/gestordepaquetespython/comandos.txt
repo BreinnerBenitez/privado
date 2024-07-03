@@ -23,5 +23,21 @@ pyinstaller archivo.py = crear archivo ejecutable
 pyinstaller --windowed --onefile --icon=./logo.ico archivo.py = crea el archivo sin ventana emergente y solo el ejecutable
 ====================django==============
 django-admin startproject (nombreproyecto) =  crear proyecto de django
-python manage.py migrate = iniciar el  proyecto
 python manage.py runserver =inicar el servidor
+python manage.py startapp nombredelproyecto= creacion de app del proyecto
+python manage.py check gestionpedidos= para chequiar que esta bien los modulos de la base de datos sin error
+python manage.py makemigrations = generar migraciones
+python manage.py sqlmigrate gestionpeidos 0001 = ejecutar sentencias sql para la base de datos despues de las migraciones
+python manage.py migrate = migracion a la base de datos  
+python manage.py shell = activando shell =
+>>> from gestionpedidos.models import  Articulo
+======
+>>> art=Articulo(nombre='mesa',seccion='decoracion',precio=90)
+>>> art.save()
+>>> art3=Articulo.objects.create(nombre="taladro",seccion="ferreteria",precio=5000)
+======
+>>> art5=Articulo.objects.get(id=3)
+>>> art5.delete()
+===========
+>>> Lista = Articulo.objects.all()
+      Lista.query.__str__() = string que me muestra la consulta

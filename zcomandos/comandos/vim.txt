@@ -1,0 +1,32 @@
+
+ i = para insertar datos
+alt+u = esto es un control z en windows 
+0 = al inicio de linea de texto 
+$ = es igual al final del texto
+numero + w = me desplaza en palabras
+dw = para borrar palabra 
+numero + dw = me borra el numero especificado de palabras
+dd = borra lineas
+numero + dd = borrar lienas selecionadas
+v = modo vizualizador  precionas "y" para copiar y "p" para pegar 
+control + tecla inicio = te lleval al inicio del todo
+control + tecla final = te lleva final del todo
+--------------------------------------------------
+vim comandos dentro del archivo
+:q = salir
+enter a la tecla i  = insertar
+:w = mostar caracteres
+:q! = cerrar forzado
+:wq =guardar y salir
+:x = guardar y salir
+:set number = enumera en el archivo vim
+/nombre = te busca en el archivo vim
+-----------------------
+vim archivo .vimrc
+set shoumode
+set autoindent
+set tabstop=4
+set expandtap
+syntax on
+
+

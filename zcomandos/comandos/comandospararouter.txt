@@ -1,0 +1,33 @@
+enable
+configure terminal
+interface GigabitEthernet0/0
+ip address 192.168.10.1 255.255.255.0
+
+-------------------------------------
+ipv6 unicast-routing =habilita  el ipv6
+interface GigabitEthernet0/0
+ipv6 address 2001:DB8:ACAD:1111::1/64
+ipv6 address FE80::1 link-local
+no shutdown = habilita la interfaz
+no ipv6 unicast-routing= deshabilita el ipv6
+end = nivel global
+write memory = guarda por si se reinicia el router 
+iprouting = permitir envios de paquetes entre redes
+show runnig-config =muestra la configuracion
+--------------------------------------------------
+configurar dhcp
+ip dhcp excluded-address 192.168.0.1 =excluirla
+ip dhcp pool comercio 
+network 192.168.10.0 255.255.255.0
+address low 192.168.10.31 high 192.168.10.254
+default-router 192.168.10.1
+
+dns-server
+show dhcp binding = mirar las ip asignadas por dchp
+==============================niveles=========
+config-if = interfaz configurando
+config-line=password
+Global Unicast (2000::/3):
+Enlace Local (fe80::/10):link local
+Multicast (ff00::/8):
+

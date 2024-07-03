@@ -1,0 +1,26 @@
+control + b y c = nueva  ventana dentro del tmux
+control + b y $ = renombra session que contiene las ventanas
+control + b y coma (,) = me deja cambiar nombre de la ventana
+control + b y doble comillas (") = para poner panel  horizontal
+control + b y porcentaje (%) = para poner panel vetical
+control + b y tecla x = cierra terminal o puede ser "exit"
+control + b y  tecla espacio = se cambia de horizontal a vertical
+control + b y llaves = mueve el contenidos entre paneles 
+control + b y flechas = se mueven entre paneles 
+control + b y letra o para rotar  paneles con su informacion
+control + b y  letra c = me hace una ventana nueva
+control + b y shift 1 para exclamacion me hace nueva ventana con info de la terminal
+control + b y numero de ventana me lleva a la ventana 
+conrol + b y tecla m me da funcionalidad con el mause
+control + b y z hace zoom al panel en la ventana
+control + b y corchete abierto ([)me pone modo seleccion 
+control y tecla espaciadora = me deja selecionar
+alt y tecla w = me copia lo selecionado
+control b + corchete de cierre = pega lo copiado 
+control b + d  =minimiza las sessiones
+tmux list-sessions = me muestras las sessiones
+tmux attach -t (nombre de la seccion) = me abre esa tmux  
+control + b y la letra q = me dice numero de panel en la session
+control + b y y signo pesos ($) me cambia el nombre de la session
+tmux new -s academia= abre un temux como academia
+tmux kill-sessions -t 0 = cierra session

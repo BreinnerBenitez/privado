@@ -1,0 +1,18 @@
+
+=====================proxmox===================
+sistema operativo para maquinas virtuales nivel 1, sistema de archivo zfs 
+RAID0: Mejora el rendimiento mediante striping, pero no ofrece redundancia. dos discos
+RAID1: Proporciona redundancia mediante mirroring, pero no mejora el rendimiento. dos discos
+RAID10: Ofrece tanto rendimiento como redundancia mediante la combinación de striping y mirroring. 4 discos
+===============================comandos==================================================================
+pvecm create = crea cluster
+pvcm status = muestra los cluster
+pvecm add ipnododestino = agrega al nodo a un cluster creado en otro nodo 
+pvecm delnodo iddelnodo = borra nodo
+fdisk = muestra particiones los discos 
+cfdisk = limpia discos
+pvcreate /dev/sdb = crea particion lv(logica volumen) vg(volumen group) pv (inicializar para uso de logica volumen Manager)
+vgcreate Disco20gb /dev/sdb1 = Disco20gb es el nomvbre con el que quedara
+mkfs -t ntfs usb = crea sistema de archivo ntfs
+mount -t  ntfs /dev/sdb1 /isos = monta discos 
+corosync= servicio de cluster

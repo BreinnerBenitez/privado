@@ -1,0 +1,34 @@
+=======git config===========
+git config --global use.name
+git config --global use.email
+git config --global -e = mira archivo de configuracion
+git config --global core.autocrlf true = en windows
+git config --global core.autocrlf input= en linux
+crar archivo .gitignore
+git clone https://github.com/gpakosz/.tmux.git
+====git uso======
+
+git status= se mira el estado
+git status -s= se mira el estado de otra forma
+git add =  se pone archivo nueco o actualizado en preparado staged
+git commit -m "nota"= se agrega una nota antes de subir los archivos a compro
+git branch = mira las ramas
+git branch -m nombrerama=  atualiza la rama selecionada
+git checkout ramaparaselecionar = seleciona la rama
+git checkut -b ramacrear =  bifulcacion de rama
+git diff = mira lo que se esta actualizando que no esta en staged
+git diff --staged= mira archivos en preparado
+git log --oneline = muestra modificaciones en los arcivos resumido = los commit
+git merge ramaatomar = se toma estando desde la main los archivos en commit
+git show identificador = muestra los cambios desde consola
+git checkout identificador = me restaura a la rama anterior
+git branch -a = muestra todas las ramas
+git tag = rama que no cambia una version 
+
+
+
+===============crear repositorio en gitub==================
+
+
+git remote add origin https://github.com/0jbgbBreinnersdh/miweb.git
+ git push -u origin main= envia la rama main al repositorio y sincoriniza

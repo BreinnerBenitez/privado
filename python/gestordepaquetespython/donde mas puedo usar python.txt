@@ -1,0 +1,14 @@
+Pruebas y automatización de pruebas
+unittest: Framework de pruebas unitarias.
+pytest: Framework de pruebas más avanzado.
+mock: Para crear objetos simulados (mock).
+====================================================
+Networking
+socket: Para programación de sockets.
+paramiko: Para SSH y SFTP.
+scapy: Para manipulación de paquetes de red.
+==================================================
+
+pandas: Para manipulación y análisis de datos.
+numpy: Para operaciones numéricas.
+matplotlib y seaborn: Para visualización de datos.

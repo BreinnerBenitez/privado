@@ -1,0 +1,13 @@
+========================SHH===========================
+
+sudo apt-get install openssh-server
+ssh -V= ver version de ssh
+/etc/ssh/sshd_config = ruta de configuracion de ssh parte de port
+sudo systemctl restart ssh = reinicia el servicio ssh
+sudo service ssh restart = forma anterior de hacerlo
+
+sshpass 'contraseña' ssh us
+
+
+
+Squid

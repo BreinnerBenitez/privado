@@ -1,0 +1,52 @@
+red
+
+nmcli device disconecte wlan0
+nmcli device wifi list
+nmcli device wifi connecte "red" password "contraseña"
+Yosoyuniremington
+--------------------------------------------------
+esto va en la parte de launch.sh
+
+## Left bar
+polybar log -c ~/.config/polybar/current.ini &
+polybar secondary -c ~/.config/polybar/current.ini &
+polybar tercero -c ~/.config/polybar/current.ini &
+polybar cuarto -c ~/.config/polybar/current.ini &
+## Right bar
+polybar top -c ~/.config/polybar/current.ini &
+polybar primary -c ~/.config/polybar/current.ini &
+
+## Center bar
+polybar primary -c ~/.config/polybar/workspace.ini &
+
+
+#asi va en la parte de arriba de de current
+
+[bar/primary]
+inherit = bar/main
+offset-x = 96.9%
+offset-y = 15
+width = 2.5%
+height = 40
+bottom = false
+padding = 0
+module-margin-left = 0
+module-margin-right = 0
+background = ${color.black}
+;foreground = ${color.blue}
+foreground = #ffffff
+;modules-center = web sep2 files sep2 edit sep2 apps
+modules-center = sysmenu
+wm-restack = bspwm
+
+
+# asi va en la parte de abajo de current
+[module/ethernet]
+type = custom/script
+interval = 2
+exec = ~/.config/bin/ethernet
+
+[module/hackthebox]
+type = custom/script
+interval = 2
+exec = ~/.config/bin/hackthebox
