@@ -18,16 +18,17 @@ git branch = mira las ramas
 git branch -m nombrerama=  atualiza la rama selecionada
 git checkout ramaparaselecionar = seleciona la rama
 git checkut -b ramacrear =  bifulcacion de rama
-git diff = mira lo que se esta actualizando que no esta en staged
+git diff index.html = mira lo que se esta actualizando que no esta en staged ya comitiado
 git diff --staged= mira archivos en preparado
 git log --oneline = muestra modificaciones en los arcivos resumido = los commit
-git merge ramaatomar = se toma estando desde la main los archivos en commit
+git merge ramaatomar = se toma estando desde la main y la main se funciona con la rama como parametro
 git show identificador = muestra los cambios desde consola
 git checkout identificador = me restaura a la rama anterior
 git branch -a = muestra todas las ramas
 git tag = rama que no cambia una version 
-
-
+git restore --source (codigo de log) (nombre archivo)= restaurar el archivo 
+git switch -c nueva-branch = nuevo comando para crear ramas
+git merged  = funcionar ramas
 
 ===============crear repositorio en gitub==================
 
