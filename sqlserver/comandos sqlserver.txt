@@ -1,0 +1,142 @@
+select  * from sys.databases;
+alter database prueba modify name=principalprueba;
+exec sp_help Empleados; = describe table 
+numeric = para un numero fijo entero
+int=  no se pone limete de numero
+decimal= para numeros enteros con sus decimales
+exec sp_rename 'nombretabla', 'nuevonombredelatabla'
+alter table Empleados add nombrecolumna nvarchar();
+alter table Empleados drop column nombretabla;
+select top 8 * from Empleados;
+select top 50 percent * from Empleados;
+select * from cliente where nombre is null;
+select * from cliente where nombre not is null;
+alter table personas add constraint unique (ccpersonal);= unique no valores iguales pero si null
+alter table personas add check (edad<=18)= chequea antes de agreagar un valor 
+alter table personas drop constraint nombredeconstraint= borrar check
+alter table personas add default 'no tiene' for ciudad; 
+select ident_seed('libros');= inicio de numero identificador 
+select ident_incr('libros');= inicio de numero de incremento
+set identity_insert tablalibros on;= capacidad de ingresar registros
+set identity_insert tablalibros off;= registros automaticos 
+
+idcliente int constraint FK_ordenes_clientes foreign key references clientes(idclientes)
+on delate cascade = si se borra un registro done esta la llave primaria se borra en cascada
+create view clientes_mayor_30 as select * from clientes where edad>30;
+
+create noclustered index I_nombreIndex on tablaempleados(edad);
+
+select distinct edad from empleados
+where salario<50.000;
+
+create schema nombreesquema;
+
+select * from empleados order by id desc o asec; 
+
+funciones de agrupacion Count=contar,  Sum =sumar, avg=promedio  
+
+select * from empleados where edad between 20 and 30; 
+
+
+SELECT e.Nombre, e.Apellido, d.NombreDepartamento, SUM(e.Salario) AS SalarioTotal
+FROM Empleados e
+JOIN Departamentos d ON e.DepartamentoID = d.DepartamentoID
+WHERE e.Salario > 50000
+GROUP BY e.Nombre, e.Apellido, d.NombreDepartamento
+HAVING SUM(e.Salario) > 50000
+ORDER BY SalarioTotal DESC;
+
+SELECT: Especifica las columnas que quieres recuperar.
+FROM: Especifica la tabla base y las tablas adicionales que se van a unir.
+JOIN: Define la unión entre las tablas.
+WHERE: Filtra los registros antes de cualquier agrupación.
+GROUP BY: Agrupa los datos.
+HAVING: Filtra los grupos de datos.
+ORDER BY: Ordena los resultados.
+
+isnull(campos+campos,valor numerico que debe aparecer si es null )
+coalesce(campos+campos,valor numerico que debe aparecer si es null)
+
+funcion case = muchas condiciones
+when
+else
+end
+=============
+funciones arimeticas
+ pi() = funcion para el pi
+ ceiling (123.45)= funcion para redondeo de cifras
+ floor (123.45)= quita redondeo 
+ select round (123.588,2)= reondeo de numero, numero a redondiar
+power(4,2)= potencia de un numero
+rand() * (100-1);= numero randon
+sqrt(4)= raiz cuadrada
+===============
+funciones de string
+
+select  + char(65) as nombres from empleados; = caracteres binarios
+select concat ('concaquetana','concatena2','concaquetana3') = concatenas valores
+select lan ('hola a todos')= me muestra el numero de caracteres 
+select upper ('mepasademinusculas')= me pasa a mayusculas
+select lower ('MAYUSCULAS')= pasa a minusculas
+select ltrim ('   hola a todos')= espacios de izquierda
+select rtrim ('hola a todos   ')= espacios de derecha
+select trim (       'espacios de los lados'         )
+select replace (' el cocobonbo ','o','a') = remplaza las letras 
+select translate ('abcdef', 'abce','0000')=  tralada valores 
+select replicate ('hola',10)= multiplica 10 veces el hola
+select reverse(1234567)as alreves = se pone al revez
+
+====
+funciones de fecha y hora
+
+datename (month,getdate()) as mes;
+datename (day,getdate()) as dia;
+datepart (month,getdate()) as mesnumero;
+set lenguaje spanish; 
+==== estrucutra de la sentencia sql ================
+SELECT e.Nombre, e.Apellido, d.NombreDepartamento, SUM(e.Salario) AS SalarioTotal
+FROM Empleados e
+JOIN Departamentos d ON e.DepartamentoID = d.DepartamentoID
+WHERE e.Salario > 50000
+GROUP BY e.Nombre, e.Apellido, d.NombreDepartamento
+HAVING SUM(e.Salario) > 50000
+ORDER BY SalarioTotal DESC;
+
+==Tipo de base de datos===========
+OLTP = transaciones en linea CRUD
+dataWarehouse= Almacen de datos de barias OLTP
+Lighwight= base de datos pequeñas
+
+====procedimiento almacenados===
+sp_(en master)
+locales(del usuario)
+temporales(#)
+globales(##)
+
+=======
+funciones de agregados 
+funciones de fila
+clacificacion= derterministicas, no deterministicas
+1) escalares:retornan un valor escalar
+2) de tabla varias instrucciones 
+3) de tabla de una linea
+============triggers
+after insert, after update, after delate, instead of insert
+
+====errores
+raiserror
+rollback trasaction
+
+====bulk insert====
+from 'ruta'
+with (firstrow=2)
+
+clasula over() = se usa con funciones de agrupacion
+
+with tanin_empleados as(consulta de de la entidad) select * tanin_empleados
+
+cross join = consultas cruzadas
+
+
+
+
