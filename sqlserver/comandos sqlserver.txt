@@ -138,5 +138,5 @@ with tanin_empleados as(consulta de de la entidad) select * tanin_empleados
 cross join = consultas cruzadas
 
 
-
+herramienta para crear base de datos drawdb.app
 
