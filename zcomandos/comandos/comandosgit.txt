@@ -16,6 +16,7 @@ git add =  se pone archivo nueco o actualizado en preparado staged
 git commit -m "nota"= se agrega una nota antes de subir los archivos a compro
 git branch = mira las ramas
 git branch -m nombrerama=  atualiza la rama selecionada
+git branch -d nombrerama= elimina la rama
 git checkout ramaparaselecionar = seleciona la rama
 git checkut -b ramacrear =  bifulcacion de rama
 git diff index.html = mira lo que se esta actualizando que no esta en staged ya comitiado
@@ -25,10 +26,13 @@ git merge ramaatomar = se toma estando desde la main y la main se funciona con l
 git show identificador = muestra los cambios desde consola
 git checkout identificador = me restaura a la rama anterior
 git branch -a = muestra todas las ramas
-git tag = rama que no cambia una version 
+git tag 07/08/2024 - "version 1 del proyecto" = crea la etiqueta
 git restore --source (codigo de log) (nombre archivo)= restaurar el archivo 
+git reset --hard (codigo)= restaurar todo el proyecto a un commit en especifico 
 git switch -c nueva-branch = nuevo comando para crear ramas
 git merged  = funcionar ramas
+git commit --amend = cambiar texto del commit
+git push --tags = envia la etiquetas al repositorio remoto
 
 ===============crear repositorio en gitub==================
 
