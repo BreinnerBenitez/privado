@@ -1,3 +1,8 @@
+java comandos para revisar 
+sudo apt install openjdk-17-jdk
+sudo update-alternatives --config java  = ver donde se instalo el java
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64/bin = poner el bin en variables de entorno
+
 =======git config===========
 git config --global use.name
 git config --global use.email
