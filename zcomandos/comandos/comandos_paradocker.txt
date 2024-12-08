@@ -1,0 +1,38 @@
+stress --cpu 3 --timeout 600 &  = estres para el cpu
+=====DOCKER=====
+/etc/nginx/nginx.config = configuracion de balanceo
+yum install nginx = servidor web
+yum install docker = instala docker
+systemctl start docker= habilitar docker
+docker pull httpd = descargar imagen para docker
+docker images = me muestran las imagenes de docker
+docker run -d = ejecutar en segundo plano
+docker run -dit = segundo plano (d),  session abierta (i), habilita terminal  (t) 
+
+docker run -dit --name app1 --restart always  -p 8080:80 -v /app1:/usr/local/apache2/htdocs/ httpd = lanzar un contenedor con todos los parametros correctos nombre,que se reinicie,el puerto del contenedor, el volumen archivos y ruta dentro del docker
+
+docker run -dit --name tienda3 --restart always -p 8083:80 -v /tienda3:/usr/local/apache2/htdocs/ httpd
+docker ps = mostrar contenedor
+
+docker stop + id = cierra el contenedor  
+docker rm  + nombre  = borra el contenedor 
+archivo  que esta en etc/nginx/nginx.config
+====
+events {}
+
+http {
+        upstream backend {
+                server localhost:8080;
+                server localhost:8082;
+                server localhost:8083;
+        }
+        server {
+                listen 80;
+                server_name nginx;
+                location / {
+                        proxy_pass http://backend;
+                        }
+        }
+
+
+}
