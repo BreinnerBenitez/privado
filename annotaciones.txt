@@ -1,0 +1,55 @@
+@RestController
+
+public class Saludo2Controller {
+    @GetMapping("/saludo/{nombre}")
+    public String saludo(@PathVariable String nombre) {
+
+        return "hola mundo  " + nombre;
+    }
+
+// en esta es con el ? luego la clave valor
+   @GetMapping("/pana")
+    public String saludoPana(@RequestParam String nombre,
+                             @RequestParam int edad) {
+
+        return "hola soy " + nombre + " pana, " + edad;
+
+
+    }
+
+ // responder en un get
+ @GetMapping("/traerpacientes")
+    @ResponseBody
+
+// para el metodo post
+    @PostMapping("/cliente")
+    public void nuevoCliente(@RequestBody Cliente cli) {
+        System.out.println("Cliente creado");
+        System.out.println("");
+
+        System.out.printf("nombre  " + cli.getNombre());
+        System.out.println("");
+
+        System.out.printf("apellido " + cli.getApellido());
+
+    }
+=====================================jpa hibernate como proveedor ==========
+
+base de datos todo code 
+https://www.youtube.com/playlist?list=PLQxX2eiEaqbwcW3dkmUqJq7B-SXHyCglf
+
+comando para crear usuario en una base de datos
+create database prueba_jpa;
+CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';
+GRANT ALL PRIVILEGES ON prueba_jpa.* TO 'admin'@'%';
+FLUSH PRIVILEGES;
+
+=============configuracion properties==================
+spring.application.name=crudjpaprueba
+spring.jpa.hirbernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://localhost:3306/prueba_jpa?useSSL=false&serverTimezone=UTC
+spring.datasource.username=admin
+spring.datasource.password=admin
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+====para probar base de datos ========
+http://localhost:8080/h2-console/
