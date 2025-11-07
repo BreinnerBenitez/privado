@@ -5,7 +5,8 @@ docker create mongo o docker container create mongo (apartir de  este contenedor
 docker logs + id = mosrar los log para ver que paso
 docker build -t nombre_imagen (miapp:1) . = para crear imagen docker a partir del docker file
 docker ps -a = mostrar contenedores detenidos 
-docker exec -it mysql-container = puedo ingresar al contenedor docker con terminal
+docker exec -it mysql-container bash (shell) = puedo ingresar al contenedor docker con terminal
+docker exec -it mysqlprobando mysql -u root -p = puedo conectarme a un contenedor directamente  a la base de datos
 docker create -p27017:27017 --name nombre_contenedor nombreimagen = crea contenedor con puerto a partir de la imagen
 docker network ls = listar todas las redes docker
 docker network create mired = crear red 
@@ -14,7 +15,9 @@ docker network connect mi_red miapp = conectar un contenedor a una red
 --network mired = esta opcion  agrupa el contenedor a la red
 docker network disconnect mired mysql-container = desconecta contenedor de la red
 docker network inspect mired = inspecionar la red
-
+docker run -dit  --name mysqlprobando --restart always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -v backup:/var/lib/mysql mysql:latest = volumen nombrado
+docker volume  ls = muestra los volumenes creardos 
+docker volume inspect = inspecionar el volumen
 
 ======Docker File ===========
 minuto 54 
