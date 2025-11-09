@@ -3,7 +3,9 @@ docker image rm node:18 = borra la imagen
 docker rm + nombre = borra el contenedor ejcutado apartir de la imagen
 docker create mongo o docker container create mongo (apartir de  este contenedor crea uno) = crear contenedor
 docker logs + id = mosrar los log para ver que paso
-docker build -t nombre_imagen (miapp:1) . = para crear imagen docker a partir del docker file
+docker build -t nombre_imagen (miapp:1) . = para crear imagen docker a partir del docker file de forma manual
+docker-compose build = craer imagen apartir del docker compose y Dockerfile definido en docker-compose va a la carpeta y lo estrae 
+docker-compose up = crea los contenedores y los ejecuta apartir de la imagen creada con docker-compose build 
 docker ps -a = mostrar contenedores detenidos 
 docker exec -it mysql-container bash (shell) = puedo ingresar al contenedor docker con terminal
 docker exec -it mysqlprobando mysql -u root -p = puedo conectarme a un contenedor directamente  a la base de datos
@@ -35,3 +37,43 @@ docker compose down = elimina todo lo creado
 volumen anonimo = solo indicar la ruta pero no lo puedo referenciar
 volumen anfitrion o host = que carpeta montar y donde montarla
 nombrado = indico pero lo puedo referenciar 
+
+=====EJemplo Docker file para produccion java=========
+
+FROM eclipse-temurin:17
+
+ARG JAR_FILE=target/clinica_veterinaria-0.0.1.jar
+COPY ${JAR_FILE} app_veterinaria.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app_veterinaria.jar"]
+=====EJemplo de archivo docker-compose.yml=========
+
+version: '3'
+services:
+  app_vet:
+    build: clinica_veterinaria  #aqui es donde ingresa a la carpeta y saca el Dockerfile  
+    mem_limit: 512m		# la carpeta esta asi clinica_veterinaria\clinica_veterinaria todos los archivos de aplicacion
+    ports:			# archivo compose en esta carpeta tambien \clinica_veterinaria	
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:mysql://clinica_vet:3306/clinica_veterinaria?createDatabaseIfNotExist=true&serverTimezone=UTC
+      DB_USER_NAME: root
+      DB_PASSWORD: 1234
+    restart: always
+    depends_on:
+      clinica_vet:
+        condition: service_healthy
+  clinica_vet:
+    image: mysql:8.0.28
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_PASSWORD: 1234
+      MYSQL_DATABASE: clinica_veterinaria
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin","ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+
