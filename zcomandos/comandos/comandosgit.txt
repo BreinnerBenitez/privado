@@ -10,6 +10,8 @@ git config --global -e = mira archivo de configuracion
 git config --global core.autocrlf true = en windows
 git config --global core.autocrlf input= en linux
 git config --global credential.helper cache = para guardar token a mis respositorios
+git config --global credential.helper "cache --timeout=86400" = 24 horas con el token
+git config --global credential.helper store = guardar el token permanentemente
 git config --global --unset credential.helper= riniciar para poner otro token
 crar archivo .gitignore
 git clone https://github.com/gpakosz/.tmux.git
