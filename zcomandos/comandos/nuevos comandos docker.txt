@@ -20,7 +20,8 @@ docker network inspect mired = inspecionar la red
 docker run -dit  --name mysqlprobando --restart always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -v backup:/var/lib/mysql mysql:latest = volumen nombrado
 docker volume  ls = muestra los volumenes creardos 
 docker volume inspect = inspecionar el volumen
-
+docker save = 
+docker load = 
 ======Docker File ===========
 minuto 54 
 FROM NODE:19 = imagen base
@@ -28,7 +29,15 @@ RUN mkdir -p /home/app = ruta del  contenedor
 COPY . (punto es la ruta del servidor) /home/app (ruta dentro del docker) = copia codigo al docker
 EXPOSE 3000 = Exponer para poder conectarse
 CMD ["node", "/home/app/index.js"]
-
+====docker hub======
+para subir imagenes
+1 se crea el repositorio en docker hub
+docker image tag tecnologiaparadeploy-app_vet:latest jbreinnersdh/javadeploy:1.0.1 = se crea el tag 
+docker push jbreinnersdh/javadeploy:1.0.1 = se sube al repositorio
+===llevarme imagen en memoria==========
+docker save -o miapp.tar miapp:latest = 
+docker save -o app_vet.tar tecnologiaparadeploy-app_vet:latest = me saca el tar
+Loaded image: miapp:latest = me crea la imagen donde me la lleve solo seria darle run rey 
 ====Docker Compose=======
 docker compose up = ejecuta el archivo compose para hacer todo mas rapido apartir de la configuracion yaml
 docker compose down = elimina todo lo creado
