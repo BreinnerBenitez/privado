@@ -584,3 +584,4 @@ head -c 3 = muestra las primeras letras
 wsl --list --online = ver que sistemas puedo instlar en windows de ubuntu
 ================================================
 Phonebook.cz = correos de organizaciones
+kali tweaks = instalar las 10 herramientas mas usadas
