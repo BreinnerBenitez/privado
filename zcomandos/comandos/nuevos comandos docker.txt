@@ -20,8 +20,8 @@ docker network inspect mired = inspecionar la red
 docker run -dit  --name mysqlprobando --restart always -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -v backup:/var/lib/mysql mysql:latest = volumen nombrado
 docker volume  ls = muestra los volumenes creardos 
 docker volume inspect = inspecionar el volumen
-docker save = 
-docker load = 
+docker save -o nombre.tar imagen:tag = guarda archivo tar
+docker load -i nombrearchivotar  = descomprime 
 ======Docker File ===========
 minuto 54 
 FROM NODE:19 = imagen base
