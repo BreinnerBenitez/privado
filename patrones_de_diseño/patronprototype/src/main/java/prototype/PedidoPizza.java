@@ -1,5 +1,6 @@
 package prototype;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PedidoPizza implements PrototipoPizza<PedidoPizza> {
@@ -9,17 +10,17 @@ public class PedidoPizza implements PrototipoPizza<PedidoPizza> {
     private List<String> ingredientes;
 
     // constuctor normal (crear desde cero )
-    public PedidoPizza(String tamanio, String tipoMasam, List<String> ingredientes) {
+    public PedidoPizza(String tamanio, String tipoMasa, List<String> ingredientes) {
         this.tamanio = tamanio;
         this.tipoMasa = tipoMasa;
-        this.ingredientes = ingredientes;
+        this.ingredientes = new ArrayList<>(ingredientes); // mutable
     }
 
     // constructor copia
     public PedidoPizza(PedidoPizza prototipo) {
         this.tamanio = prototipo.tamanio;
         this.tipoMasa = prototipo.tipoMasa;
-        this.ingredientes = prototipo.ingredientes;
+        this.ingredientes =new ArrayList<>(prototipo.ingredientes);
     }
 
     @Override
@@ -29,8 +30,8 @@ public class PedidoPizza implements PrototipoPizza<PedidoPizza> {
 
     // es un metodo para agregar los ingredientes
 
-    public void agregarIngredientes(String ingrefientes) {
-        this.ingredientes.add(ingrefientes);
+    public void agregarIngredientes(String ingredientes) {
+        this.ingredientes.add(ingredientes);
 
     }
 
