@@ -12,6 +12,15 @@ docker run -dit = segundo plano (d),  session abierta (i), habilita terminal  (t
 docker run -dit --name app1 --restart always  -p 8080:80 -v /app1:/usr/local/apache2/htdocs/ httpd = lanzar un contenedor con todos los parametros correctos nombre,que se reinicie,el puerto del contenedor, el volumen archivos y ruta dentro del docker
 
 docker run -dit --name tienda3 --restart always -p 8083:80 -v /tienda3:/usr/local/apache2/htdocs/ httpd
+--------------docker oracle free
+docker run -dit \
+  --name oracle-free \
+  --restart always \
+  -p 1521:1521 \
+  -e ORACLE_PASSWORD=Oracle123 \
+  -v oracle_data:/opt/oracle/oradata \
+  gvenzl/oracle-free
+-------------------
 docker ps = mostrar contenedor
 
 docker stop + id = cierra el contenedor  
