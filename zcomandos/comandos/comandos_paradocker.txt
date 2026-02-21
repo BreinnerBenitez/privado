@@ -20,6 +20,10 @@ docker run -dit \
   -e ORACLE_PASSWORD=Oracle123 \
   -v oracle_data:/opt/oracle/oradata \
   gvenzl/oracle-free
+conectarse al contenedor con exec
+oracle-free sqlplus / as sysdba
+
+
 -------------------
 docker ps = mostrar contenedor
 
