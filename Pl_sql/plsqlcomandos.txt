@@ -1,0 +1,19 @@
+SET SERVEROUTPUT ON;
+DECLARE
+salario NUMBER:=1500;
+nombre_empleado NVARCHAR2(100);
+activo BOOLEAN;
+fecha DATE;
+
+--definicion de funciones y variables
+BEGIN
+nombre_empleado:= 'breinner benitez';
+activo:=true;
+fecha:='31-12-2015';
+dbms_output.put_line('nombre '|| nombre_empleado);
+dbms_output.put_line('salario '|| salario);
+dbms_output.put_line('fecha '|| fecha);
+dbms_output.put_line('activo '|| case when activo then 'si'else 'no' end);
+
+END;
+/
