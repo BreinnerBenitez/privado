@@ -1,5 +1,5 @@
 SET SERVEROUTPUT ON;
-DECLARE
+/*DECLARE
 salario NUMBER:=1500;
 nombre_empleado NVARCHAR2(100);
 activo BOOLEAN;
@@ -16,4 +16,41 @@ dbms_output.put_line('fecha '|| fecha);
 dbms_output.put_line('activo '|| case when activo then 'si'else 'no' end);
 
 END;
+/
+*/
+/*
+DECLARE
+
+ --constantes
+ PI CONSTANT number:= 3.141559;
+ 
+ -- variables
+ area number;
+ radio number;
+BEGIN
+  radio:=7;
+  area :=PI *(radio*radio);
+  dbms_output.put_line('Area :'|| area|| 'cm2');
+
+END;
+/
+*/
+
+-- clase 7 
+
+--select count(*)from dual;
+--select user from dual;
+
+DECLARE
+
+cantidad number;
+usuario nvarchar2 (100);
+BEGIN
+
+ SELECT USER , COUNT (*) INTO usuario, cantidad FROM dual;
+ dbms_output.put_line('usuario: '||usuario); 
+ dbms_output.put_line('cantidad:'|| cantidad);
+
+
+END; 
 /
