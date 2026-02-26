@@ -54,3 +54,33 @@ BEGIN
 
 END; 
 /
+
+DECLARE 
+nombre NVARCHAR2 (100):= ' Fernando ';
+apellido NVARCHAR2 (100):= 'benitez';
+nombreCompleto NVARCHAR2(200);
+hoy date:=sysdate;
+nombre2 NVARCHAR2(100);
+BEGIN
+nombreCompleto:= nombre || apellido;
+dbms_output.put_line('largo:'|| length(nombre));
+dbms_output.put_line('Trim '||trim(nombre)||';');
+dbms_output.put_line('Minusculas '|| lower(nombre)||';');
+dbms_output.put_line('Mayusculas '|| upper(nombre)||';');
+nombre:= trim(nombre);
+dbms_output.put_line('Cortar: '|| substr(nombre,1,3)||';');
+dbms_output.put_line('remplazar: '|| replace(nombre,'f','h')||';');
+
+-- funcion de fecha
+dbms_output.put_line('hoy: '|| hoy);
+dbms_output.put_line('agregar mes: '||add_months(hoy,1));
+dbms_output.put_line('agregar dia: '||(hoy+1));
+dbms_output.put_line('nombre completo: '|| nombreCompleto);
+dbms_output.put_line('Dia: '|| to_char(hoy,'dd'));
+dbms_output.put_line('dia mes  '|| to_char(hoy,'dd-MM'));
+dbms_output.put_line('anio '|| to_char(hoy,'yyyy'));
+dbms_output.put_line('NVL:'|| NVL (nombre2,'Es Nulo'));
+END;
+/
+
+
