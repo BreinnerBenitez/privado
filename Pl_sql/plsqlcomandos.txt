@@ -83,4 +83,118 @@ dbms_output.put_line('NVL:'|| NVL (nombre2,'Es Nulo'));
 END;
 /
 
+-- video 9
+SET SERVEROUTPUT ON;
 
+DECLARE
+-- Definimos los arreglos 
+  type alumnosArray is varray(5) of nvarchar2(100);
+  type notasArray is varray (5) of number;
+  
+-- Utilizamos los arreglos
+  alumnos alumnosArray;
+  notas notasArray;
+BEGIN
+    alumnos :=alumnosArray('Fernando','Melisa','Andrea','Antonio','Clarissa');
+    notas:= notasArray(90,100,95,89,75);
+    
+    dbms_output.put_line(alumnos(1));
+    dbms_output.put_line(alumnos(2));
+    dbms_output.put_line(alumnos(3));
+    dbms_output.put_line(notas(1));
+    dbms_output.put_line(notas(2));
+    dbms_output.put_line(notas(3));
+    
+    notas(1):=26;
+    dbms_output.put_line(notas(1));
+
+END;
+/
+-- ejercicio 10
+
+ SET SERVEROUTPUT ON;
+ 
+ DECLARE
+ numero_camisetas number:=5;
+ monto_de_camisetas number:=10000;
+ sub_total  number;
+quince_por_Ciento number;
+ total_apagar number;
+ 
+ BEGIN
+ sub_total:=numero_camisetas*monto_de_camisetas;
+ quince_por_ciento :=sub_total*0.15;
+ total_apagar:= quince_por_ciento+sub_total;
+dbms_output.put_line('sub total a pagar:'|| sub_total);
+dbms_output.put_line('15%:'||quince_por_ciento);
+dbms_output.put_line(' total a pagar'||total_apagar);
+ END;
+/
+
+--ejercicio 11 
+
+ SET SERVEROUTPUT ON;
+ 
+ DECLARE
+ numero_camisetas number:=5;
+ monto_de_camisetas number:=10000;
+ sub_total  number;
+quince_por_Ciento number;
+ total_apagar number;
+ 
+ BEGIN
+ sub_total:=numero_camisetas*monto_de_camisetas;
+ quince_por_ciento :=sub_total*0.15;
+ total_apagar:= quince_por_ciento+sub_total;
+dbms_output.put_line('sub total a pagar:'|| sub_total);
+dbms_output.put_line('15%:'||quince_por_ciento);
+dbms_output.put_line(' total a pagar'||total_apagar);
+ END;
+/
+-- clase 12 funcionando correctamente
+SET SERVEROUTPUT ON;
+declare 
+ nota number :=68;
+ 
+ 
+begin
+--IF (nota =69 or nota= 68 )THEN
+IF (nota BETWEEN 67 AND 69 )THEN
+ nota:=70;
+ 
+END IF;
+dbms_output.put_line('NOTA'|| nota);
+ IF (nota >= 70) THEN
+ dbms_output.put_line('paso la clase');
+ ELSE 
+  dbms_output.put_line('reprobo la clase');
+ END IF;
+ 
+ 
+end;
+/
+
+-- clase 13 quede 
+
+declare 
+ ran number := round (dbms_random.value(0,5));
+ 
+begin
+    dbms_output.put_line(ran);
+    
+    CASE 
+     WHEN ran=0 then
+     dbms_output.put_line('cero');
+     WHEN ran=1 then
+     dbms_output.put_line('uno');
+     WHEN ran=2 then
+     dbms_output.put_line('dos');
+      WHEN ran=3 then
+     dbms_output.put_line('tres');
+     WHEN ran=4 then
+     dbms_output.put_line('cuatro');
+    ELSE
+     dbms_output.put_line('cinco');
+     END CASE;
+end;
+/
