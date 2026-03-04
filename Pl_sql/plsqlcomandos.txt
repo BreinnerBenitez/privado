@@ -198,3 +198,67 @@ begin
      END CASE;
 end;
 /
+
+-- video 15 
+SET SERVEROUTPUT ON;
+
+DECLARE
+a NUMBER :=6;
+b NUMBER :=10;
+ 
+nombre1 NVARCHAR2(200):='breinner';
+nombre2 NVARCHAR2 (200);
+ 
+BEGIN
+
+/* IF (a<b)THEN
+ dbms_output.put_line('A es menor a B');
+ END IF;*/
+ /*
+ IF (nombre1 LIKE '%n%' )THEN
+ dbms_output.put_line('la plabra tine la letra n');
+ END IF; */
+ /*
+  IF (a BETWEEN 6 AND 10)THEN
+ dbms_output.put_line('a es '||a);
+ END IF;
+ */
+ /* IF (b in (5,10,15,20) )THEN
+ dbms_output.put_line('b esta en el grupo de elementos');
+ END IF */
+  IF (nombre2 is null )THEN
+ dbms_output.put_line('el nombre2 es nulo');
+ END IF;
+END;
+/
+
+--video 16 quede tarea
+
+SET SERVEROUTPUT ON;
+
+DECLARE 
+ salario_empleado NUMBER :=600;
+ aumento NUMBER;
+ resultado NUMBER;
+BEGIN
+ 
+ IF (salario_empleado <=600)THEN
+    aumento := salario_empleado*0.15;
+    resultado:=salario_empleado+aumento;
+    dbms_output.put_line('Resultado: '||resultado);
+ELSIF (salario_empleado BETWEEN 601 AND 950)THEN
+        aumento := salario_empleado*0.135;
+    resultado:=salario_empleado+aumento;
+    dbms_output.put_line('Resultado: '||resultado);
+ELSIF (salario_empleado BETWEEN 951 AND 1400)THEN
+        aumento := salario_empleado*0.10;
+    resultado:=salario_empleado+aumento;
+    dbms_output.put_line('Resultado: '||resultado);
+  ELSE 
+    aumento := salario_empleado*0.5;
+    resultado:=salario_empleado+aumento;
+    dbms_output.put_line('Resultado: '||resultado);
+END IF;
+    
+END;
+/
