@@ -262,3 +262,43 @@ END IF;
     
 END;
 /
+
+--  VIDEO 17 QUEDE 
+
+-- siclo for  prueba
+
+DECLARE
+
+BEGIN
+
+ <<ciclo_tabla_2>>
+ FOR I IN 1..10 LOOP
+    dbms_output.put_line('i. '|| (i*2));
+    
+ END LOOP ciclo_tabla_2;
+
+
+END;
+/
+
+-- video 20
+SET SERVEROUTPUT ON;
+
+-- siclo for  prueba  infifinito sin clausula de exit o continue
+
+DECLARE
+x NUMBER:=10;
+BEGIN
+
+ loop
+ dbms_output.put_line(x);
+ x:=x+10;
+ 
+ IF (x>120) THEN
+ exit;
+ end if;
+ end loop;
+
+
+END;
+/
