@@ -291,7 +291,7 @@ x NUMBER:=10;
 BEGIN
 
  loop
- dbms_output.put_line(x);
+ dbms_output.put_line(x);no
  x:=x+10;
  
  IF (x>120) THEN
@@ -302,3 +302,85 @@ BEGIN
 
 END;
 /
+
+-- CICLO MIENTRAS
+SET SERVEROUTPUT ON;
+
+DECLARE 
+
+Y NUMBER:=20;
+
+BEGIN
+  WHILE Y <= 100 LOOP
+  dbms_output.put_line(y);
+  y:=y+20;
+  END LOOP;
+
+
+END;
+/
+
+-- ACTIVIDAD CICLOS 23
+
+SET SERVEROUTPUT ON;
+
+DECLARE 
+
+type notasArray is varray(4) of number;
+notas notasArray := notasArray(95,60,75,85);
+
+promedio number(6,2) := 0;
+BEGIN
+ 
+ FOR idx IN 1..notas.COUNT LOOP
+        promedio:= promedio+ notas(idx);      
+    END LOOP; 
+    promedio:=promedio/notas.COUNT;
+
+dbms_output.put_line( promedio ); -- Determine el promedio
+
+END;
+/
+
+-- 24 clase
+
+
+DECLARE 
+numero number := 4; -- 4x3x2x1
+factorial number:=1;
+
+BEGIN
+  while numero >= 1 LOOP
+        factorial:= factorial*numero;
+        numero:=numero -1;
+ END LOOP;
+dbms_output.put_line( factorial ); -- 
+
+END;
+/
+
+-- clase 25 funciones
+
+CREATE OR REPLACE  FUNCTION total_empleados
+return number
+is 
+total number:=0;
+begin 
+
+select count (*) into total from empleados;
+
+return total;
+end;
+
+-- usar la funcion
+SET SERVEROUTPUT ON;
+
+DECLARE
+ empleados number;
+BEGIN
+empleados:=total_empleados();
+ dbms_output.put_line('total empleados '|| empleados);
+END;
+/
+
+select total_empleados();
