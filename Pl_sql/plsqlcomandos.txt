@@ -384,3 +384,60 @@ END;
 /
 
 select total_empleados();
+
+--video 28
+SET SERVEROUTPUT ON;
+
+DECLARE -- pruba realizada video 28
+ a number := 33;
+ b number :=25;
+ z number;
+BEGIN
+z := mayor_entre(a,b);
+ dbms_output.put_line('el  mayor es'|| z);
+END;
+/
+
+-- CLASE 30 
+SET SERVEROUTPUT ON;
+DECLARE
+
+ salarioPromedio number :=0;
+ --===========
+ -- obtener promedio
+ --=========
+ FUNCTION obtener_promedio
+ return number
+ is
+ promedio number :=0;
+
+BEGIN
+
+ select avg(salario) into promedio from empleados;
+ return promedio;
+
+END; --===========
+ -- fin de la funcion promedio
+ --=========
+
+
+BEGIN -- FUNCION PL PRINCIPAL
+
+ salarioPromedio:=obtener_promedio();
+ dbms_output.put_line('el salario promedio es '||salarioPromedio);
+
+END;
+/
+
+--- video  31 procedimiento almacenado
+
+/*CREATE OR REPLACE PROCEDURE actualiza_fecha_empleados 
+AS
+BEGIN
+
+    update empleados set actualizado=sysdate;
+END;
+/
+*/
+select * from empleados;
+execute actualiza_fecha_empleados;
