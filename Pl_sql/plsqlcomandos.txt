@@ -441,3 +441,74 @@ END;
 */
 select * from empleados;
 execute actualiza_fecha_empleados;
+
+-- video variables de entrada y salida
+create or replace NONEDITIONABLE PROCEDURE menor_entre(X in number, y in number,z out number)
+IS
+BEGIN
+
+    IF (X>Y)THEN
+    z:=y;
+    ELSE 
+    Z:=x;
+    END IF;
+
+END;
+
+-- lo utilizo en un pl
+SET SERVEROUTPUT ON;
+
+
+DECLARE
+  a number:=5;
+  b number :=10;
+  c number ;
+
+BEGIN
+
+menor_entre(a,b,c);
+dbms_output.put_line('El menor es:'|| c);
+
+
+END;
+/
+
+-- tarea funciones 
+
+CREATE OR REPLACE FUNCTION promedio_notas( 
+nota1 IN NUMBER,
+nota2 IN NUMBER, 
+nota3 IN NUMBER,
+nota4 IN NUMBER)
+RETURN NUMBER
+IS
+promedio number(5,2) := 0;
+
+BEGIN
+    promedio := (NVL(nota1, 0) + NVL(nota2, 0) + NVL(nota3, 0) + NVL(nota4, 0)) / 4;
+
+return promedio;
+
+END;
+
+-- probar 
+select  a.*, promedio_notas( nota1,nota2,nota3,nota4) as promedio from notas a;
+
+-- cursores implícitos
+SET SERVEROUTPUT ON;
+
+
+DECLARE
+  
+ promedio number;
+
+BEGIN
+ FOR fila in (select * from notas) LOOP
+        promedio := (fila.nota1+fila.nota2+fila.nota3+fila.nota4)/4;
+        dbms_output.put_line(' Nombre: '|| fila.nombre || ' promedio: '|| promedio);
+ END LOOP;
+
+END;
+/
+
+
