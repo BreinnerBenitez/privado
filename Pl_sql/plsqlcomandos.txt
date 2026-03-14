@@ -548,8 +548,10 @@ BEGIN
 END;
 /
 
--- 39 clase
+-- 39 clase y 40
 
+
+SET  SERVEROUTPUT ON;
 
 DECLARE
 
@@ -561,6 +563,16 @@ type carro is record(
 
 mazda carro;
 toyota carro;
+-- procedimiento de impresion
+PROCEDURE imprimir_carro(car carro)is
+BEGIN
+dbms_output.put_line(car.marca);
+dbms_output.put_line(car.modelo);
+dbms_output.put_line(car.puertas);
+
+END;
+
+--fin  procedimiento de impreson
 BEGIN
   mazda.marca:= 'mazda';
   mazda.modelo:='Mazda 3';
@@ -570,8 +582,51 @@ BEGIN
   toyota.modelo:='prado';
   toyota.puertas:=5;
   
-  dbms_output.put_line(mazda.modelo);
-
- 
+  imprimir_carro(mazda);
+  imprimir_carro(toyota);
+   
 END;
 /
+
+-- ejericio hice el esquema la ia me paso el resto
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+    --  Definición del Cursor Explícito
+    CURSOR c_empleados IS 
+        SELECT nombre, salario, dias_trabajados 
+        FROM empleados;
+
+   -- Procedimiento de impresión recibe un registro como parámetro
+    PROCEDURE imprimir_empleado(p_nombre VARCHAR2, p_salario NUMBER, p_dias NUMBER) IS
+        v_salario_diario NUMBER;
+        v_salario_pagar  NUMBER;
+    BEGIN
+        v_salario_diario := p_salario / 30;
+        v_salario_pagar  := v_salario_diario * p_dias;
+
+        DBMS_OUTPUT.PUT_LINE('========================');
+        DBMS_OUTPUT.PUT_LINE('Empleado: ' || p_nombre);
+        -- ROUND para que el salario diario se vea limpio con 2 decimales
+        DBMS_OUTPUT.PUT_LINE('Salario diario: ' || ROUND(v_salario_diario, 2));
+        DBMS_OUTPUT.PUT_LINE('Dias Trabajados: ' || p_dias);
+        DBMS_OUTPUT.PUT_LINE('Salario a Pagar: ' || ROUND(v_salario_pagar, 2));
+    END;
+
+BEGIN
+    -- 3. Ciclo para recorrer el cursor
+    FOR r_emp IN c_empleados LOOP
+        imprimir_empleado(r_emp.nombre, r_emp.salario, r_emp.dias_trabajados);
+    END LOOP;
+    
+    DBMS_OUTPUT.PUT_LINE('========================');
+END;
+/
+
+--EXEPTIONS
+EXCEPTION
+ when no_data_found then 
+  dbms_ouput.put_line('no encontro empleado con ese codigo' );
+  when others then 
+   dbms_ouput.put_line('algo raro paso' );
