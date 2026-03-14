@@ -624,9 +624,12 @@ BEGIN
 END;
 /
 
---EXEPTIONS
+-- EXCEPTION
 EXCEPTION
  when no_data_found then 
   dbms_ouput.put_line('no encontro empleado con ese codigo' );
   when others then 
    dbms_ouput.put_line('algo raro paso' );
+
+-- VIDEO 45
+
