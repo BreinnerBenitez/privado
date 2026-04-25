@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface IUserSec extends JpaRepository<UserSec, Long> {
+public interface IUserRepository extends JpaRepository<UserSec, Long> {
 
 
     //Crea la sentencia en base al nombre en inglés del método
