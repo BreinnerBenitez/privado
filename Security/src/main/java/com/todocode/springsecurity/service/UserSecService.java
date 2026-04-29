@@ -1,34 +1,43 @@
 package com.todocode.springsecurity.service;
 
 import com.todocode.springsecurity.model.Role;
+import com.todocode.springsecurity.model.UserSec;
+import com.todocode.springsecurity.repository.IUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
-public class UserSecService implements IRoleService{
+public class UserSecService implements IUserSec {
+    @Autowired
+    private IUserRepository userRepository;
+
+
     @Override
     public List findAll() {
-        return List.of();
+        return userRepository.findAll();
     }
 
     @Override
     public Optional findById(Long id) {
-        return Optional.empty();
+        return userRepository.findById(id);
     }
 
     @Override
-    public Role save(Role role) {
-        return null;
+    public UserSec save(UserSec userSec) {
+        return userRepository.save(userSec);
     }
 
     @Override
     public void deleteById(Long id) {
-
+        userRepository.deleteById(id);
     }
 
     @Override
-    public Role update(Role role) {
-        return null;
+    public void update(UserSec userSec) {
+        save(userSec);
+
     }
 }
