@@ -1,5 +1,6 @@
 package com.todocode.springsecurity.security.config;
 
+import com.todocode.springsecurity.service.UserDetailsServiceImp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -77,21 +78,22 @@ public class SecurityConfig {
 
 
     @Bean
-    public AuthenticationProvider authenticationProvider(){
+    public AuthenticationProvider authenticationProvider(UserDetailsServiceImp userDetailsService) {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setPasswordEncoder(passwordEncoder());
-        provider.setUserDetailsService(userDetailsService());
+       // provider.setUserDetailsService(userDetailsService());
+        provider.setUserDetailsService(userDetailsService);
         return provider;
     }
 
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
 
 
-
+/* esto fue para probar
     @Bean
     public UserDetailsService userDetailsService () {
         List userDetailsList = new ArrayList<>();
@@ -117,6 +119,7 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(userDetailsList);
     }
 
+*/
 
 
 }
