@@ -1,0 +1,49 @@
+ 1 ) Open Claw en Docker
+
+* git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+* ./scripts/docker/setup.sh = ejecutar para realizar la configuración 
+
+probe esta opción es mejor por que trae la imagen de ahora y  no la construye: 
+
+export OPENCLAW_IMAGE="ghcr.io/openclaw/openclaw:latest"
+./scripts/docker/setup.sh
+
+extra_hosts:  - "host.docker.internal:host-gateway" = debe de ir asi en el yaml. 
+
+*  en las preguntas de configuración luego que me baja la imagen:
+◇  I understand this is personal-by-default and shared/multi-user use requires lock-down. Continue?
+│  Yes
+│
+◇  Setup mode
+│  QuickStart (recommended)  
+
+
+opciones de red
+
+  Gateway port: 18789                 │
+│  Gateway bind: Loopback (127.0.0.1)  │
+│  Gateway auth: Token (default)       │
+│  Tailscale exposure: Off             │
+│  Direct to chat channels.
+
+
+* debo escoger ollama y luego pasarle la ruta importante: http://host.docker.internal:11434 = para que se pueda conectar con ollama local
+
+2) en ollama realizo lo siguiente:
+* irm https://ollama.com/install.ps1 | iex = con esto instalo ollama
+* instalación de deep seek con 8 de ram:  ollama pull deepseek-r1:7b
+  mirar imagen de capacidad de memoria para saber cual modelo descargar =
+
+ollama pull deepseek-r1:1.5b = 4gb
+
+ollama pull deepseek-r1:7b = 8gb
+
+ollama pull deepseek-r1:14b =  16gb
+
+ollama pull deepseek-r1:32b = 32 gb
+
+prueba desde terminal ollama run deepseek-r1:1.5b "hola, funciona?"
+
+
+

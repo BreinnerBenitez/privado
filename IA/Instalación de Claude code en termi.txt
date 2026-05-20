@@ -1,0 +1,21 @@
+Instalación de Claude code en terminal con Wsl 
+
+esta la forma estándar, sub agentes y team angent = backend frontend y seguridad.
+
+curl -fsSL https://claude.ai/install.sh | bash
+     source ~/.bashrc
+     claude --version
+     source ~/.profile
+     claude --versión
+ 
+se necesita pagar el pro o el max o tener una api por tokens
+
+ /remote-control = es para el móvil
+
+
+
+=========================================
+instalación en vscode
+
+se necesita wsl plugin en vscode para wsl
+

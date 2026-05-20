@@ -38,7 +38,7 @@ public class RoleController {
 
     @PostMapping
     public ResponseEntity createRole(@RequestBody Role role) {
-        Set<Permission> permissionList = new HashSet<>();
+        Set<Permission> permissionList = new HashSet<Permission>();
         Permission readPermission;
 
         // Recuperar la Permission/s por su ID
