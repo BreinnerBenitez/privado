@@ -45,5 +45,60 @@ ollama pull deepseek-r1:32b = 32 gb
 
 prueba desde terminal ollama run deepseek-r1:1.5b "hola, funciona?"
 
+pasos opcionales 
+===subirle la memoria a wsl 
 
+wsl --shutdown = lo apago
+en usuario donde lo estoy usando pego=
+.configwsl
+[wsl2]
+memory=8GB
+
+== ollama en Linux  con open clow con  Docker y Deep seek
+curl -fsSL https://ollama.com/install.sh | sh
+
+1) sudo apt-get install zstd -y
+2) export OPENCLAW_IMAGE="ghcr.io/openclaw/openclaw:latest"
+./scripts/docker/setup.sh
+3) ollama pull deepseek-r1:1.5b
+   sudo lsof -i :11434 == herramienta para saber que esta pasando en el puerto
+   sudo kill 2569 = para cerra le proceso y hacer pruebas 	
+  sudo systemctl edit ollama = configurar archivo
+  [Service]
+  Environment="OLLAMA_HOST=0.0.0.0" = configurar esta variable de entorno
+  sudo systemctl daemon-reload = cargar nuevamente
+  sudo systemctl restart ollama = resetiar el servicio
+
+	
+	
+== configuraciones adiconales==
+
+ollama list = lista los modelos
+ollama serve= inicia el servicio en un segundo plano
+ollama pull modelo = descarga el modelo de ia con su contexto
+ollama rm modelo= elimina por completo un modelo
+ollama show modelo= despliega informacion detallada sobre la arquictectura
+ollama ps = muestra los modelos que se estan ejecutando
+ollama stop modelo = descarga un modelo de la memoria ram
+
+openclaw start > /dev/null 2>&1 &
+openclaw onboard = para configurar
+openclaw gateway = para encender mi agente
+openclaw doctor =  para saber que esta malo
+nohup openclaw gateway > /dev/null 2>&1 &
+ = segundo plano
+ps aux | grep openclaw = monitoreo
+18789 = puerto de open claw
+11434 = puerto de ollama
+
+======
+
+curl -o- https://githubusercontent.com | bash = gestor de paquetes de node.js
+ 
+nvm install 24 = instalar
+
+node -v  = version de node
+npm -v  = version npm 
+npm install -g openclaw@latest = instalar directamente 
+curl -fsSL https://openclaw.ai/install.sh | bash = forma oficial 
 

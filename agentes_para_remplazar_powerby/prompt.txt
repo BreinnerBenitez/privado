@@ -1,0 +1,25 @@
+1) primer paso
+Lee el archivo Excel del workspace y haz SOLO esto:
+1. Dime el nombre de todas las columnas
+2. Cuántas filas tiene
+3. Muéstrame las primeras 5 filas como ejemplo
+4. Dime el rango de fechas si hay alguna columna de fecha
+5. Lista los valores únicos de las columnas categóricas 
+
+No hagas nada más todavía. Solo dame ese resumen.
+
+2) Perfecto. Basándote ÚNICAMENTE en ese resumen que acabas de darme, 
+crea un archivo "dashboard.html" en el workspace con:
+
+- Diseño oscuro estilo Power BI (fondo #1a1a2e, tarjetas #16213e, 
+  acentos azul #0f3460 y cyan #00d4ff)
+- 4 tarjetas KPI arriba (totales, promedios o lo más relevante)
+- 1 gráfica de barras o líneas de ventas por tiempo
+- 1 gráfica de torta por categoría
+- 1 tabla resumen con los top 10 registros
+- Chart.js cargado desde CDN
+- Todo en un solo HTML que funcione sin servidor
+
+Usa los nombres de columnas y valores reales que encontraste.
+No inventes datos, usa los del resumen.
+
