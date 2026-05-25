@@ -102,3 +102,12 @@ npm -v  = version npm
 npm install -g openclaw@latest = instalar directamente 
 curl -fsSL https://openclaw.ai/install.sh | bash = forma oficial 
 
+======borrado
+
+openclaw gateway stop
+openclaw gateway uninstall
+openclaw uninstall --all --yes --non-interactive
+openclaw models  list = para ver los modelos desde openclaw
+
+
+
