@@ -40,7 +40,7 @@ git switch -c nueva-branch = nuevo comando para crear ramas
 git merged  = funcionar ramas
 git commit --amend = cambiar texto del commit
 git push --tags = envia la etiquetas al repositorio remoto
-
+git cherry-pick [ID-del-commit] = actualiza el commit que le diga
 ===============crear repositorio en gitub==================
 
 
