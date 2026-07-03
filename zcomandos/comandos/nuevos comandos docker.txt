@@ -7,6 +7,7 @@ docker build -t nombre_imagen (miapp:1) . = para crear imagen docker a partir de
 docker-compose build = craer imagen apartir del docker compose y Dockerfile definido en docker-compose va a la carpeta y lo estrae 
 docker-compose up = crea los contenedores y los ejecuta apartir de la imagen creada con docker-compose build 
 docker-compose -f despliegue.yaml up = cuando el archivo docker compose esta con otro nombre
+docker-compose up -d = esto  ejecuta en segundo plano
 docker ps -a = mostrar contenedores detenidos 
 docker exec -it mysql-container bash (shell) = puedo ingresar al contenedor docker con terminal
 docker exec -it mysqlprobando mysql -u root -p = puedo conectarme a un contenedor directamente  a la base de datos
