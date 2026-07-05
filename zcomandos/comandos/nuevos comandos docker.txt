@@ -11,6 +11,7 @@ docker-compose up -d = esto  ejecuta en segundo plano
 docker-compose logs  (servicio) = mirar el servicio
 docker-compose restart (servicio) = se resetea el servicio
 docker-compose down = elimina todo lo creado 
+docker states = estado de los contenedores activos
 docker ps -a = mostrar contenedores detenidos 
 docker exec -it mysql-container bash (shell) = puedo ingresar al contenedor docker con terminal
 docker exec -it mysqlprobando mysql -u root -p = puedo conectarme a un contenedor directamente  a la base de datos
