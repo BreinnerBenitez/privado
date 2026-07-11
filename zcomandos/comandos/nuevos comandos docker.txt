@@ -103,7 +103,7 @@ services:
     ports:			
       - "8080:8080"
     environment:
-      DB_URL: jdbc:mysql://celsia:3306/celsia?createDatabaseIfNotExist=true&seSSL=false&serverTimezone=UTC
+      DB_URL: jdbc:mysql://celsia:3306/celsia?createDatabaseIfNotExist=true&seSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       USER: root
       PASSWORD: breinner
     restart: always
@@ -119,11 +119,14 @@ services:
       MYSQL_PASSWORD: breinner
       MYSQL_DATABASE: celsia
     restart: always
+      volumes:
+        - celsia_datos:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin","ping", "-h", "localhost"]
       timeout: 10s
       retries: 10
-
+  volumes:
+    celsia_datos:
 =====================================
 
 FROM openjdk:17-jdk-slim
