@@ -20,6 +20,7 @@ docker network ls = listar todas las redes docker
 docker network create mired = crear red 
 docker network rm mired = borra la red
 docker network connect mi_red miapp = conectar un contenedor a una red
+mvn clean package -DskipTests = me ayuda en el servidor sino subo el tarjet meignora los test
 --network mired = esta opcion  agrupa el contenedor a la red
 docker network disconnect mired mysql-container = desconecta contenedor de la red
 docker network inspect mired = inspecionar la red
