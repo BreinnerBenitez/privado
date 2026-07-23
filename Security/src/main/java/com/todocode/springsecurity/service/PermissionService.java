@@ -16,12 +16,12 @@ public class PermissionService implements IPermissionService {
     private IPermissionRepositoy permissionRepositoy;
 
     @Override
-    public List findAll() {
+    public List<Permission> findAll() {
         return permissionRepositoy.findAll();
     }
 
     @Override
-    public Optional findById(Long id) {
+    public Optional<Permission> findById(Long id) {
         return  permissionRepositoy.findById(id);
     }
 

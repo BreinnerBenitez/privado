@@ -14,7 +14,7 @@ import java.util.Set;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserSec {
+public class  UserSec {
 
     @Id
     @GeneratedValue(strategy= GenerationType. IDENTITY)
