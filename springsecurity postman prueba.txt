@@ -1,0 +1,34 @@
+http://localhost:8080/api/permissions
+
+{
+    "permissionName": "CREATE"
+}
+
+http://localhost:8080/api/roles
+{
+    "role": "USER",
+    "permissionsList": [
+        {
+            "id": 1 // ID del permiso READ
+        }
+    ]
+}
+
+http://localhost:8080/api/users
+
+
+{
+    "username": "todocode",
+    "password": "1234",
+    "enabled": true,
+    "accountNotExpired": true,
+    "accountNotLocked": true,
+    "credentialNotExpired": true,
+    "rolesList": [
+        {
+            "id": 1 // ID del rol adm
+        }
+    ]
+}
+
+
