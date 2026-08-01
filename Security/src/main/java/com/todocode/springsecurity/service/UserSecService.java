@@ -16,12 +16,12 @@ public class UserSecService implements IUserSec {
 
 
     @Override
-    public List findAll() {
+    public List <UserSec>findAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public Optional findById(Long id) {
+    public Optional<UserSec> findById(Long id) {
         return userRepository.findById(id);
     }
 

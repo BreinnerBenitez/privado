@@ -8,9 +8,9 @@ import java.util.Optional;
 public interface IUserSec {
 
 
-    public List findAll();
+    public List <UserSec>findAll();
 
-    public Optional findById(Long id);
+    public Optional <UserSec>findById(Long id);
 
     public UserSec save(UserSec userSec);
 

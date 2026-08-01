@@ -8,9 +8,9 @@ import java.util.Optional;
 public interface IRoleService {
 
 
-    List findAll();
+    List <Role> findAll();
 
-    Optional findById(Long id);
+    Optional <Role>findById(Long id);
 
     Role save(Role role);
 
