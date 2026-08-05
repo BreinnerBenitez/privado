@@ -4,6 +4,7 @@ import com.todocode.springsecurity.model.Role;
 import com.todocode.springsecurity.model.UserSec;
 import com.todocode.springsecurity.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,6 +42,10 @@ public class UserSecService implements IUserSec {
 
     }
 
+    @Override
+    public String encriptPassword(String password) {
+        return new BCryptPasswordEncoder().encode(password);
+    }
 
 
 }
