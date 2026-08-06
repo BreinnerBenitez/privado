@@ -1,25 +1,29 @@
 package com.todocode.springsecurity.service;
 
+import com.todocode.springsecurity.model.Permission;
 import com.todocode.springsecurity.model.Role;
 import com.todocode.springsecurity.repository.IRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
 @Service
-public class RoleService implements IRoleService{
+public class RoleService implements IRoleService {
 
     @Autowired
     private IRoleRepository roleRepository;
 
     @Override
-    public List<Role>findAll() {
+    public List<Role> findAll() {
         return roleRepository.findAll();
     }
 
     @Override
-    public Optional <Role>findById(Long id) {
+    public Optional<Role> findById(Long id) {
         return roleRepository.findById(id);
     }
 
@@ -39,4 +43,19 @@ public class RoleService implements IRoleService{
     public Role update(Role role) {
         return save(role);
     }
+
+    @Override
+    @Transactional // Recomendado para asegurar la persistencia de la relación @ManyToMany
+    public Role updatePermissions(Long id, Set<Permission> permissionsList) {
+
+        Role existingRole = findById(id)
+                .orElseThrow(() -> new RuntimeException("Rol no encontrado con ID: " + id));
+
+
+        existingRole.setPermissionsList(permissionsList);
+
+
+        return save(existingRole);
+    }
+
 }

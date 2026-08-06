@@ -1,9 +1,11 @@
 package com.todocode.springsecurity.service;
 
+import com.todocode.springsecurity.model.Permission;
 import com.todocode.springsecurity.model.Role;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public interface IRoleService {
 
@@ -17,6 +19,6 @@ public interface IRoleService {
     void deleteById(Long id);
 
     Role update(Role role);
-
+    Role updatePermissions (Long id, Set<Permission> permissionsList);
 
 }
