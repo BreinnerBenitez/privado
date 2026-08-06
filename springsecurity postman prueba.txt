@@ -31,4 +31,16 @@ http://localhost:8080/api/users
     ]
 }
 
+http://localhost:8080/api/roles/1/permissions
+
+[
+    {
+        "id": 2,
+        "permissionName": "CREATE"
+    },
+    {
+        "id": 1,
+        "permissionName": "READ"
+    }
+]
 
